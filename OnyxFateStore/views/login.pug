@@ -3,7 +3,7 @@ extends layoutlogin
 block content
     .login-box
         h2 Sign Up
-        form
+        form(action='/signupinfo' method='POST' id='signupform')
             .user-box
                 input#collectEMAIL(type='UserEmail' name='' required='')
                 label E-mail
@@ -19,10 +19,9 @@ block content
             .user-box
                 input#collectLASTNAME(type='UserLastName' name='' required='')
                 label Lastname
-            a(href='#' onmousedown='query()')
+            a(href='javascript:;' onmousedown="collectData('signupform')" onclick="anchorSubmit('signupform')")
                 span
                 span
                 span
                 span
-                | Submit
-    script(type='module' src='/javascripts/sqllogin.js') 
+                | Submit 

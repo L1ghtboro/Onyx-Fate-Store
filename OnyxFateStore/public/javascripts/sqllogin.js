@@ -1,12 +1,12 @@
-function query() {
-    let UserLogin = document.getElementById('collectLOGIN').value;
-    let UserEmail = document.getElementById('collectEMAIL').value;
-    let UserPassword = document.getElementById('collectPASS').value;
-    let UserName = document.getElementById('collectNAME').value;
-    let UserLastname = document.getElementById('collectLASTNAME').value;
+function collectData(calledFrom) {
+    let User = [document.getElementById('collectLOGIN').value,
+                document.getElementById('collectEMAIL').value,
+                document.getElementById('collectPASS').value,
+                document.getElementById('collectNAME').value,
+                document.getElementById('collectLASTNAME').value];
+ 
 }
 
-
-
-
-
+function anchorSubmit(calledForm) {
+    document.getElementById(calledForm).submit();
+}
