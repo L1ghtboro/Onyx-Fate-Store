@@ -12,7 +12,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>2c2920eb-ae57-4027-be3b-044db12d80d4</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>app.js</StartupFile>
+    <StartupFile>app.ts</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,6 +30,12 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="public\javascripts\dbconnect.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\javascripts\sqllogin.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\stylesheets\loginstyle.css">
       <SubType>Code</SubType>
     </Content>

@@ -1,2 +1,3 @@
 ALTER TABLE LoginInfo
 ADD UserPicture VARBINARY(max)
+ADD UserEmail VARCHAR(128)

@@ -5,20 +5,24 @@ block content
         h2 Sign Up
         form
             .user-box
-                input(type='UserLogin' name='' required='')
+                input#collectEMAIL(type='UserEmail' name='' required='')
+                label E-mail
+            .user-box
+                input#collectLOGIN(type='UserLogin' name='' required='')
                 label Username
             .user-box
-                input(type='UserPassword' name='' required='')
+                input#collectPASS(type='UserPassword' name='' required='')
                 label Password
             .user-box
-                input(type='UserName' name='' required='')
+                input#collectNAME(type='UserName' name='' required='')
                 label Name
             .user-box
-                input(type='UserLastName' name='' required='')
+                input#collectLASTNAME(type='UserLastName' name='' required='')
                 label Lastname
-            a(href='#')
+            a(href='#' onmousedown='query()')
                 span
                 span
                 span
                 span
                 | Submit
+    script(type='module' src='/javascripts/sqllogin.js') 
