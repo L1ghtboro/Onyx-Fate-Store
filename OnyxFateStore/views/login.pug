@@ -2,26 +2,48 @@ extends layoutlogin
 
 block content
     .login-box
-        h2 Sign Up
-        form(action='/signupinfo' method='POST' id='signupform')
+        ul.links
+            li.signup-active
+                a.btn
+                    | Sign Up
+            li.signin-inactive
+                a.btn
+                    | Sign In
+        form.form-signup(action='/singinform' method='POST' id='signupform' style='display: block')
             .user-box
-                input#collectEMAIL(type='UserEmail' name='' required='')
+                input#collectEMAIL(type='text' name='UserEmail', required='')
                 label E-mail
             .user-box
-                input#collectLOGIN(type='UserLogin' name='' required='')
+                input#collectLOGIN(type='text' name='UserLogin', required='')
                 label Username
             .user-box
-                input#collectPASS(type='UserPassword' name='' required='')
+                input#collectPASS(type='password' name='UserPassword', required='')
                 label Password
             .user-box
-                input#collectNAME(type='UserName' name='' required='')
+                input#collectNAME(type='text' name='UserName', required='')
                 label Name
             .user-box
-                input#collectLASTNAME(type='UserLastName' name='' required='')
+                input#collectLASTNAME(type='text' name='UserLastname', required='')
                 label Lastname
-            a(href='javascript:;' onmousedown="collectData('signupform')" onclick="anchorSubmit('signupform')")
+            a(href='javascript:;' onclick="anchorSubmit('signupform')")
                 span
                 span
                 span
                 span
                 | Submit 
+
+        form.form-signin(action='/singinform' method='POST' id='signinform' style='display: none')
+            .user-box
+                input#collectEMAIL(type='text' name='UserEmail', required='')
+                label E-mail
+            .user-box
+                input#collectPASS(type='password' name='UserPassword', required='')
+                label Password
+            a(href='javascript:;' onclick="anchorSubmit('signipform')")
+                span
+                span
+                span
+                span
+                | Submit 
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript')
+    script(type='text/javascript' src='/javascripts/sqllogin.js')

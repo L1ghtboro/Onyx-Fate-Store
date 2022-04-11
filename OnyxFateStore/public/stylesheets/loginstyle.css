@@ -9,6 +9,72 @@ body {
     background: linear-gradient(#141e30, #243b55);
 }
 
+.links {
+
+}
+.links li {
+    padding-left: 10px;
+    font-size: 18px;
+    display: inline;
+    text-align: left;
+    text-transform: uppercase;
+    padding-right: 10px;
+    color: #ffffff;
+}
+
+.signin-active a {
+    padding-bottom: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: solid 2px #1059FF;
+    transition: all .25s ease;
+    cursor: pointer;
+}
+
+.signin-inactive a {
+    padding-bottom: 0;
+    color: rgba(255,255,255,.3);
+    text-decoration: none;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.signin-active a:hover {
+    padding-bottom: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: none;
+    transition: all .25s ease;
+    cursor: pointer;
+}
+
+.signup-active a {
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: solid 2px #03e9f4;
+    padding-bottom: 10px;
+}
+
+.signup-active a:hover {
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+
+.signup-inactive a {
+  cursor: pointer;
+  color: rgba(255,255,255,.3);
+  text-decoration: none;
+  transition: all .25s ease;
+}
+
+.hidden{
+    display: none;
+}
+
 .login-box {
     position: absolute;
     top: 50%;

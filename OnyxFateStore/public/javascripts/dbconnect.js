@@ -32,7 +32,7 @@ function queryDatabase() {
     console.log("Start writing...");
 
     const NewRequest = new Request(
-        "SET IDENTITY_INSERT LoginInfo ON INSERT INTO LoginInfo(UserID, UserLogin, UserEmail, UserPassword, UserName, UserLastName) VALUES(2, 'Lightboro', 'tiptemka@gmail.com', 'litterallynotmy123', 'Artem', 'Skoropadskii'); ",
+        "SET IDENTITY_INSERT LoginInfo ON INSERT INTO LoginInfo(UserID, UserLogin, UserEmail, UserPassword, UserName, UserLastName) VALUES(3, 'Light', 'tiptemka@gmail.com', 'litterallynotmy123', 'Artem', 'Skoropadskii'); ",
         (err, rowCount) => {
             if (err) {
                 console.error(err.message);
