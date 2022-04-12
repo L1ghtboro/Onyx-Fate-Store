@@ -36,6 +36,9 @@
     <Content Include="public\javascripts\error.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="public\javascripts\preloader.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\javascripts\sqllogin.js">
       <SubType>Code</SubType>
     </Content>
@@ -43,6 +46,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="public\stylesheets\loginstyle.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\stylesheets\preloader.css">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\errorlayout.pug">

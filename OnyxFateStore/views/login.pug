@@ -1,6 +1,9 @@
 extends layoutlogin
 
 block content
+    .preloader
+       .loader
+
     .login-box
         ul.links
             li.signup-active
@@ -45,5 +48,4 @@ block content
                 span
                 span
                 | Submit 
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript')
     script(type='text/javascript' src='/javascripts/sqllogin.js')
