@@ -1,6 +1,14 @@
-extends layout 
+extends errorlayout 
 
 block content 
-  h1= message 
-  h2= error.status 
-  pre #{error.stack}
+    .container
+        h1= error.status
+        p= message
+            br
+            |  You're currently in Brazil.
+        small
+            | Visit the 
+        a(href='https://florin-pop.com' target='/') home page
+        .circle.small
+        .circle.medium
+        .circle.big

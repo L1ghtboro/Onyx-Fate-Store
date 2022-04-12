@@ -46,7 +46,7 @@ html {
 
 body {
     font-family: var(--body-font);
-    background: linear-gradient(#141e30, #243b55);
+    background: repeating-linear-gradient(#4568DC, #B06AB3);
     display: flex;
     justify-content: center;
     align-items: center;

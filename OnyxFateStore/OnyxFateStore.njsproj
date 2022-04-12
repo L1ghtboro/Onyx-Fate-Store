@@ -33,10 +33,19 @@
     <Content Include="public\javascripts\dbconnect.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="public\javascripts\error.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\javascripts\sqllogin.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="public\stylesheets\error.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\stylesheets\loginstyle.css">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\errorlayout.pug">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\layoutlogin.pug">

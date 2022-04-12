@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+    --pink1: #EF73CB;
+    --pink2: #DC5F89;
+}
+
+body, html {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+    align-items: center;
+    background: repeating-linear-gradient(#4568DC, #B06AB3);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 10em;
+    margin: 0 0 0.5em;
+    line-height: 10px;
+}
+
+.container p {
+    font-size: 1.2em;
+    line-height: 26px;
+}
+
+.container small {
+    opacity: 0.7;
+}
+
+.container a {
+    color: #eee;
+}
+
+.circle {
+    background-image: linear-gradient(to top right, var(--pink1), var(--pink2));
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+
+    .circle.small {
+        top: 200px;
+        left: 150px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .circle.medium {
+        background-image: linear-gradient(to bottom left, var(--pink1), var(--pink2));
+        bottom: -70px;
+        left: 0;
+        width: 200px;
+        height: 200px;
+    }
+
+    .circle.big {
+        top: -100px;
+        right: -50px;
+        width: 400px;
+        height: 400px;
+    }
+
+@media screen and (max-width: 480px) {
+    .container h1 {
+        font-size: 8em;
+    }
+
+    .container p {
+        font-size: 1em;
+    }
+}
