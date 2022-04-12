@@ -549,6 +549,7 @@ body.light-mode .video-bg:before {
     cursor: pointer;
     transition: 0.3s;
     white-space: nowrap;
+
 }
 
 .content-wrapper-img {
@@ -959,4 +960,9 @@ body.light-mode .video-bg:before {
     background: var(--scrollbar-bg);
     border-radius: 10px;
 }
+
+#cart {
+    fill: white;
+}
+
 

@@ -34,10 +34,10 @@ block content
 
         form.form-signin(action='/singinform' method='POST' id='signinform' style='display: none')
             .user-box
-                input#collectEMAIL(type='text' name='UserEmail', required='')
+                input#collectEMAIL(type='text' name='UserEmailLogin', required='')
                 label E-mail
             .user-box
-                input#collectPASS(type='password' name='UserPassword', required='')
+                input#collectPASS(type='password' name='UserPasswordLogin', required='')
                 label Password
             a(href='javascript:;' onclick="anchorSubmit('signipform')")
                 span
