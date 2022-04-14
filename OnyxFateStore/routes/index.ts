@@ -1,37 +1,17 @@
 import express = require('express');
 const router = express.Router();
 
+import Connection from '../connection/createconnection';
+const { Request } = require('tedious');
+
 let bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true })); 
 
-const { Connection, Request } = require('tedious');
+//Environment Variable?
 
-const config = {
-    server: "onyx-fate-store.database.windows.net",
-    options: {
-        database: "Onyx-Assets",
-        encrypt: true
-    },
-    authentication: {
-        type: "default",
-        options: {
-            userName: "Lightboro",
-            password: "gamegaydev2Q3050",
-        }
-    }
-}
+//interface
 
-const NewConnection = new Connection(config);
-
-NewConnection.on("connect", err => {
-    if (err) {
-        console.error(err.message);
-    } else {
-        console.log("Success");
-    }
-});
-
-NewConnection.connect();
+//UTF-8
 
 router.get('/', (req: express.Request, res: express.Response) => {
     res.render('index', { title: 'Main Page'});
@@ -45,7 +25,19 @@ router.post('/singinform', (req, res) => {
     res.redirect('/')
     console.log("Start writing...");
 
+    //Service validate if Email. Password == Password. UserLogin unique. Login >= 3. Password >= 8. UTF-8. Lib validation?
+
+    //Hash Password -> DB
+
+    //req.body -> LoginDTO
     const NewRequest = new Request(
+        
+        //req.body -> read JSON info into object
+        //UserLogin -> userLogin
+        //DB UserLogin -> user_login
+
+        //SQL query -> find dependency query?
+        //Prepare Statement
         `INSERT INTO LoginInfo(UserLogin, UserEmail, UserPassword, UserName, UserLastName) VALUES('${req.body.UserLogin}', '${req.body.UserEmail}', '${req.body.UserPassword}', '${req.body.UserName}', '${req.body.UserLastname}'); `,
         (err, rowCount) => {
             if (err) {
@@ -55,7 +47,7 @@ router.post('/singinform', (req, res) => {
             }
         });
 
-    NewConnection.execSql(NewRequest);
+    Connection.execSql(NewRequest);
 });
 
 export default router;
