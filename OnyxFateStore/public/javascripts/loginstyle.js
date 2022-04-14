@@ -2,10 +2,6 @@ function anchorSubmit(calledForm) {
     document.getElementById(calledForm).submit();
 }
 
-$(document).ready(function () {
-    $('form-signin').addClass("hidden");
-});
-
 $(function () {
     $(".btn").click(function () {
         if (document.getElementById('signupform').style.display == 'block') {

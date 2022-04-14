@@ -65,6 +65,7 @@ gamegaydev2Q3050</Environment>
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
+    <Folder Include="public\typescripts\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
@@ -74,6 +75,9 @@ gamegaydev2Q3050</Environment>
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="connection\createconnection.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\typescripts\checksign.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
   </ItemGroup>
