@@ -39,11 +39,17 @@ gamegaydev2Q3050</Environment>
     <None Include="Properties\PublishProfiles\Onyx-Fate-Store - Web Deploy.pubxml" />
     <Content Include="public\images\mord.svg" />
     <Content Include="public\javascripts\error.js" />
+    <Content Include="public\javascripts\notify.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\javascripts\preloader.js" />
     <Content Include="public\javascripts\script.js" />
     <Content Include="public\javascripts\loginstyle.js" />
     <Content Include="public\stylesheets\error.css" />
     <Content Include="public\stylesheets\loginstyle.css" />
+    <Content Include="public\stylesheets\notify.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\stylesheets\preloader.css" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />

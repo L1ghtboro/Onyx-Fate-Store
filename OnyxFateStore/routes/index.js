@@ -22,7 +22,6 @@ router.post('/singinform', (req, res) => {
     else {
         res.redirect('/error');
     }
-    console.log("Start writing...");
     //Service validate if Email. Password == Password. UserLogin unique. Login >= 3. Password >= 8. UTF-8. Lib validation?
     //Hash Password -> DB
     //req.body -> LoginDTO
