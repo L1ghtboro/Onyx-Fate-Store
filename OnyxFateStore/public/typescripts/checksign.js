@@ -6,8 +6,6 @@ const createconnection_1 = require("../../connection/createconnection");
 const { Connection, Request } = require('tedious');
 let findEmail, findLogins;
 function validation(toValid) {
-    let isPausedEmail = true, isPausedLogin = true;
-    //2
     (0, createconnection_1.executeSQL)(`SELECT *
         FROM LoginInfo
         WHERE  '${toValid.UserEmail}' in (UserEmail);`, (err, data) => {
@@ -15,7 +13,6 @@ function validation(toValid) {
             console.error(err);
         findEmail = data.rowCount;
     });
-    //3
     (0, createconnection_1.executeSQL)(`SELECT *
         FROM LoginInfo
         WHERE  '${toValid.UserLogin}' in (UserLogin);`, (err, data) => {
@@ -23,8 +20,6 @@ function validation(toValid) {
             console.error(err);
         findLogins = data.rowCount;
     });
-    //1
-    console.log(findEmail, findLogins);
     if (!findEmail && !findLogins && (toValid.UserPassword === toValid.UserConfirmations) && ((validator_1.default.isEmail(toValid.UserEmail)) && (toValid.UserPassword.length > 7) && (toValid.UserLogin.length > 5)))
         return true;
     return false;

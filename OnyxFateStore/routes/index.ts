@@ -23,7 +23,7 @@ router.get('/login', (req: express.Request, res: express.Response) => {
     res.render('login', {title: 'Login Page'});
 });
 
-router.post('/singupform', (req, res) => {
+router.post('/signupform', (req, res) => {
 
     validation(req.body)
 

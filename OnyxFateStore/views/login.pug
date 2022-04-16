@@ -12,24 +12,24 @@ block content
             li.signin-inactive
                 a.btn
                     | Sign In
-        form.form-signup(action='/singupform' method='POST' id='signupform' style='display: block')
+        form.form-signup(action='/signupform' method='POST' id='signupform' style='display: block')
             .user-box
-                input#collectEMAIL(type='text' name='UserEmail', required='')
+                input#collectEMAIL(type='text' name='userEmail', required='')
                 label E-mail
             .user-box
-                input#collectLOGIN(type='text' name='UserLogin', required='')
+                input#collectLOGIN(type='text' name='userLogin', required='')
                 label Username
             .user-box
-                input#collectPASS(type='password' name='UserPassword', required='')
+                input#collectPASS(type='password' name='userPassword', required='')
                 label Password
             .user-box
-                input#collectCONFIRMATION(type='password' name='UserConfirmations', required='')
+                input#collectCONFIRMATION(type='password' name='userConfirmations', required='')
                 label Confirm Password
             .user-box
-                input#collectNAME(type='text' name='UserName', required='')
+                input#collectNAME(type='text' name='userName', required='')
                 label Name
             .user-box
-                input#collectLASTNAME(type='text' name='UserLastname', required='')
+                input#collectLASTNAME(type='text' name='userLastname', required='')
                 label Lastname
             a(href='javascript:;' onclick="anchorSubmit('signupform')")
                 span
@@ -38,12 +38,12 @@ block content
                 span
                 | Submit 
 
-        form.form-signin(action='/singinform' method='POST' id='signinform' style='display: none')
+        form.form-signin(action='/signinform' method='POST' id='signinform' style='display: none')
             .user-box
-                input#collectEMAIL(type='text' name='UserEmailLogin', required='')
+                input#collectEMAIL(type='text' name='userEmailLogin', required='')
                 label E-mail
             .user-box
-                input#collectPASS(type='password' name='UserPasswordLogin', required='')
+                input#collectPASS(type='password' name='userPasswordLogin', required='')
                 label Password
             a(href='javascript:;' onclick="anchorSubmit('signipform')")
                 span

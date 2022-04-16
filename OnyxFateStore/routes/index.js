@@ -15,8 +15,29 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('login', { title: 'Login Page' });
 });
-router.post('/singinform', (req, res) => {
+router.get('/browsing', (req, res) => {
+    res.render('preloaderloop', { title: 'Browsing' });
+});
+router.post('/signupform', (req, res) => {
     (0, checksign_1.validation)(req.body);
+    res.send(`<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Onyx Fate | Browsing</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/javascripts/preloaderloop.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/stylesheets/preloader.css">
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+</body>
+
+</html>`);
     setTimeout(function () {
         if ((0, checksign_1.validation)(req.body)) {
             res.redirect('/');

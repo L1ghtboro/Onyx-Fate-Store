@@ -16,16 +16,16 @@ NewConnection.connect();
 
 export default NewConnection;   
 
-export const executeSQL = (sql, callback) => {
+export const makeQuery = (query, _callback) => {
     let connection = new Connection(config);
     connection.connect((err) => {
         if (err)
-            return callback(err, null);
-        const request = new Request(sql, (err, rowCount, rows) => {
+            return _callback(err, null);
+        const request = new Request(query, (err: any, rowCount: any, rows: any) => {
             connection.close();
             if (err)
-                return callback(err, null);
-            callback(null, { rowCount, rows });
+                return _callback(err, null);
+            _callback(null, { rowCount, rows });
         });
         connection.execSql(request);
     });
