@@ -9,6 +9,8 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 import { validation } from '../public/typescripts/checksign';
 
+import { createSignUpDTO } from '../public/typescripts/logindto';
+
 //Environment Variable?
 
 //interface
@@ -29,7 +31,11 @@ router.post('/signupform', (req, res) => {
 
     setTimeout(function () {
         if (validation(req.body)) {
+            req.body = createSignUpDTO(req.body)
+            req.body.userRole = 'User';
+            console.log(req.body);
             res.redirect('/');
+            
         } else {
             res.redirect('/error');
         }

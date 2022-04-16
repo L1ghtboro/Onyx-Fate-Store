@@ -13,14 +13,18 @@
   },
   "dependencies": {
     "Babel": "^0.0.1",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
+    "crypto-hash": "^2.0.1",
     "debug": "^2.2.0",
     "express": "^4.14.0",
+    "node-rsa": "^1.1.1",
     "pug": "^2.0.0-rc.3",
     "tedious": "^14.4.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/debug": "0.0.30",
     "@types/express": "^4.0.37",
     "@types/express-serve-static-core": "^4.0.50",

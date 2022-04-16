@@ -86,6 +86,9 @@ gamegaydev2Q3050</Environment>
     <TypeScriptCompile Include="public\typescripts\checksign.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="public\typescripts\logindto.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>

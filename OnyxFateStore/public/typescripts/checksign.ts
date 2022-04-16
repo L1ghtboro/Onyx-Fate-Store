@@ -21,7 +21,9 @@ export function validation(toValid) {
             console.error(err);
         findLogins = data.rowCount;
     });
-    
+
+    console.log('Emails - ' + findEmail, 'Logins - ' + findLogins);
+
     if (!findEmail && !findLogins && (toValid.userPassword === toValid.userConfirmations) && ((validator.isEmail(toValid.userEmail)) && (toValid.userPassword.length > 7) && (toValid.userLogin.length > 5)))
         return true;
     return false;
