@@ -16,12 +16,15 @@ router.get('/login', (req, res) => {
     res.render('login', { title: 'Login Page' });
 });
 router.post('/singinform', (req, res) => {
-    if ((0, checksign_1.validation)(req.body.UserEmail, req.body.UserPassword, req.body.UserConfirmations)) {
-        res.redirect('/');
-    }
-    else {
-        res.redirect('/error');
-    }
+    (0, checksign_1.validation)(req.body);
+    setTimeout(function () {
+        if ((0, checksign_1.validation)(req.body)) {
+            res.redirect('/');
+        }
+        else {
+            res.redirect('/error');
+        }
+    }, 3000);
     //Service validate if Email. Password == Password. UserLogin unique. Login >= 3. Password >= 8. UTF-8. Lib validation?
     //Hash Password -> DB
     //req.body -> LoginDTO

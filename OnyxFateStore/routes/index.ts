@@ -23,14 +23,17 @@ router.get('/login', (req: express.Request, res: express.Response) => {
     res.render('login', {title: 'Login Page'});
 });
 
-router.post('/singinform', (req, res) => {
+router.post('/singupform', (req, res) => {
 
-    if (validation(req.body.UserEmail, req.body.UserPassword, req.body.UserConfirmations)) {
-        res.redirect('/');
-    } else {
-        res.redirect('/error');
-    }
-    
+    validation(req.body)
+
+    setTimeout(function () {
+        if (validation(req.body)) {
+            res.redirect('/');
+        } else {
+            res.redirect('/error');
+        }
+    }, 3000);
 
     //Service validate if Email. Password == Password. UserLogin unique. Login >= 3. Password >= 8. UTF-8. Lib validation?
 
