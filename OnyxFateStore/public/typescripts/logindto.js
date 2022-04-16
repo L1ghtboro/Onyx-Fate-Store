@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createSignUpDTO = void 0;
 const crypto = require("crypto");
@@ -62,11 +53,9 @@ const decrypt = (salt, encoded) => {
     return encoded.match(/.{1,2}/g).map((hex) => parseInt(hex, 16)).map(applySaltToChar).map((charCode) => String.fromCharCode(charCode)).join("");
 };
 function createSignUpDTO(toSignUp) {
-    return __awaiter(this, void 0, void 0, function* () {
-        toSignUp.userPassword = crypt(toSignUp.userLogin, toSignUp.userPassword);
-        toSignUp.userConfirmations = toSignUp.userPassword;
-        return toSignUp;
-    });
+    toSignUp.userPassword = crypt(toSignUp.userLogin, toSignUp.userPassword);
+    toSignUp.userConfirmations = toSignUp.userPassword;
+    return toSignUp;
 }
 exports.createSignUpDTO = createSignUpDTO;
 //# sourceMappingURL=logindto.js.map

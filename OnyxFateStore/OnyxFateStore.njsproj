@@ -39,6 +39,9 @@ gamegaydev2Q3050</Environment>
     <None Include="Properties\PublishProfiles\Onyx-Fate-Store - Web Deploy.pubxml" />
     <Content Include="public\images\mord.svg" />
     <Content Include="public\javascripts\error.js" />
+    <Content Include="public\javascripts\loop.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\javascripts\notify.js">
       <SubType>Code</SubType>
     </Content>
@@ -55,6 +58,9 @@ gamegaydev2Q3050</Environment>
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <Content Include="views\browsing.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\error.pug" />
     <Content Include="views\errorlayout.pug" />
     <Content Include="views\index.pug" />

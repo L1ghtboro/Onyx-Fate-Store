@@ -65,7 +65,7 @@ const decrypt = (salt, encoded) => {
     return encoded.match(/.{1,2}/g).map((hex) => parseInt(hex, 16)).map(applySaltToChar).map((charCode) => String.fromCharCode(charCode)).join("");
 };
 
-export async function createSignUpDTO(toSignUp) {
+export function createSignUpDTO(toSignUp) {
     toSignUp.userPassword = crypt(toSignUp.userLogin, toSignUp.userPassword);
     toSignUp.userConfirmations = toSignUp.userPassword;
 

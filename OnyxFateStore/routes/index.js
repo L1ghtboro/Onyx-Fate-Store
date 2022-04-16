@@ -2,14 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const router = express.Router();
-const { Request } = require('tedious');
+const createconnection_1 = require("../connection/createconnection");
 let bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 const checksign_1 = require("../public/typescripts/checksign");
 const logindto_1 = require("../public/typescripts/logindto");
-//Environment Variable?
-//interface
-//UTF-8
 router.get('/', (req, res) => {
     res.render('index', { title: 'Main Page' });
 });
@@ -23,30 +20,21 @@ router.post('/signupform', (req, res) => {
             req.body = (0, logindto_1.createSignUpDTO)(req.body);
             req.body.userRole = 'User';
             console.log(req.body);
+            (0, createconnection_1.makeQuery)(`INSERT INTO LoginInfo(user_login, user_email, user_password, user_name, user_lastname, user_role) 
+            VALUES('${req.body.userLogin}', '${req.body.userEmail}', '${req.body.userPassword}', '${req.body.userName}', '${req.body.userLastname}', '${req.body.userRole}'); `, (err) => {
+                if (err)
+                    console.error(err);
+                console.log('Data Inserted - new user ' + req.body.userLogin);
+            });
             res.redirect('/');
         }
         else {
-            res.redirect('/error');
+            res.render('error', {
+                message: 'You may entered an existing login or email',
+                error: 'An error occurred'
+            });
         }
     }, 3000);
-    //Service validate if Email. Password == Password. UserLogin unique. Login >= 3. Password >= 8. UTF-8. Lib validation?
-    //Hash Password -> DB
-    //req.body -> LoginDTO
-    //const NewRequest = new Request(
-    //    //req.body -> read JSON info into object
-    //    //UserLogin -> userLogin
-    //    //DB UserLogin -> user_login
-    //    //SQL query -> find dependency query?
-    //    //Prepare Statement
-    //    `INSERT INTO LoginInfo(UserLogin, UserEmail, UserPassword, UserName, UserLastName) VALUES('${req.body.UserLogin}', '${req.body.UserEmail}', '${req.body.UserPassword}', '${req.body.UserName}', '${req.body.UserLastname}'); `,
-    //    (err, rowCount) => {
-    //        if (err) {
-    //            console.error(err.message);
-    //        } else {
-    //            console.log('Inserted data');
-    //        }
-    //    });
-    //Connection.execSql(NewRequest);
 });
 exports.default = router;
 function alert(arg0) {
