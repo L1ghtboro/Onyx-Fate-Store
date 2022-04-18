@@ -5,8 +5,8 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>OnyxFateStore</Name>
     <RootNamespace>OnyxFateStore</RootNamespace>
-    <Environment>Lightboro
-gamegaydev2Q3050</Environment>
+    <Environment>
+    </Environment>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -38,6 +38,9 @@ gamegaydev2Q3050</Environment>
     <None Include="routes\user.ts" />
     <None Include="Properties\PublishProfiles\Onyx-Fate-Store - Web Deploy.pubxml" />
     <Content Include="public\images\mord.svg" />
+    <Content Include="public\javascripts\cookiesengage.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\javascripts\error.js" />
     <Content Include="public\javascripts\loop.js">
       <SubType>Code</SubType>
@@ -90,6 +93,9 @@ gamegaydev2Q3050</Environment>
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\typescripts\checksign.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\typescripts\cookiesengage.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\typescripts\logindto.ts">

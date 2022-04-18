@@ -7,11 +7,23 @@ let bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 const checksign_1 = require("../public/typescripts/checksign");
 const logindto_1 = require("../public/typescripts/logindto");
+const cookiesengage_1 = require("../public/javascripts/cookiesengage");
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const jwt = require('jsonwebtoken');
+var user_token = jwt.sign({ foo: 'bar' }, 'shhh');
 router.get('/', (req, res) => {
-    res.render('index', { title: 'Main Page' });
+    (0, cookiesengage_1.setCookie)('Artem', '18');
+    res.render('index', { title: 'Main Page', signedStatus: 'Sign Up' });
 });
 router.get('/login', (req, res) => {
     res.render('login', { title: 'Login Page' });
+});
+router.get('/model', (req, res) => {
+    //Figure how to browse model#id
+});
+router.post('/signinfirm', (req, res) => {
+    //Sign In
 });
 router.post('/signupform', (req, res) => {
     (0, checksign_1.validation)(req.body);
@@ -26,6 +38,7 @@ router.post('/signupform', (req, res) => {
                     console.error(err);
                 console.log('Data Inserted - new user ' + req.body.userLogin);
             });
+            //Up here we need to stay logged 
             res.redirect('/');
         }
         else {

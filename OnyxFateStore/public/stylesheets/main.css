@@ -177,22 +177,6 @@ body.light-mode .video-bg:before {
     border-bottom: 2px solid var(--theme-color);
 }
 
-.menu-circle {
-    width: 15px;
-    height: 15px;
-    background-color: #f96057;
-    border-radius: 50%;
-    box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
-    margin-right: 195px;
-    flex-shrink: 0;
-}
-
-@media screen and (max-width: 945px) {
-    .menu-circle {
-        display: none;
-    }
-}
-
 .search-bar {
     height: 40px;
     display: flex;
@@ -257,6 +241,8 @@ body.light-mode .video-bg:before {
 
 .notification {
     position: relative;
+    right: 20px;
+    bottom: 0px;
 }
 
 .notification-number {
@@ -270,12 +256,11 @@ body.light-mode .video-bg:before {
     align-items: center;
     justify-content: center;
     color: #fff;
-    right: -6px;
     top: -6px;
 }
 
 .notification + svg {
-    margin-left: 22px;
+    margin-left: 40px;
 }
 
 @media screen and (max-width: 945px) {
@@ -283,6 +268,23 @@ body.light-mode .video-bg:before {
         display: none;
     }
 }
+
+.notsigned {
+    text-decoration: none;
+    color: var(--theme-color);
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+    .notsigned:hover {
+        color: var(--theme-color);
+        border-bottom: 2px solid var(--theme-color);
+    }
 
 .profile-img {
     width: 32px;
@@ -307,7 +309,7 @@ body.light-mode .video-bg:before {
     padding-left: 0;
 }
 
-.wide .menu-circle {
+.wide {
     margin-right: 0;
 }
 
@@ -714,7 +716,8 @@ body.light-mode .video-bg:before {
 }
 
 #cart {
+    position: absolute;
     fill: white;
+    margin-left: 50px;
+    left: 20%;
 }
-
-

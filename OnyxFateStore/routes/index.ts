@@ -10,12 +10,28 @@ import { validation } from '../public/typescripts/checksign';
 
 import { createSignUpDTO } from '../public/typescripts/logindto';
 
+import { setCookie, getCookie, deleteCookie } from '../public/typescripts/cookiesengage';
+
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
+const jwt = require('jsonwebtoken');
+var user_token = jwt.sign({ foo: 'bar' }, 'shhh');
+
 router.get('/', (req: express.Request, res: express.Response) => {
-    res.render('index', { title: 'Main Page'});
+    res.render('index', { title: 'Main Page', signedStatus: 'Sign Up'});
 });
 
 router.get('/login', (req: express.Request, res: express.Response) => {
     res.render('login', {title: 'Login Page'});
+});
+
+router.get('/model', (req: express.Request, res: express.Response) => {
+    //Figure how to browse model#id
+});
+
+router.post('/signinfirm', (req: express.Request, res: express.Response) => {
+    //Sign In
 });
 
 router.post('/signupform', (req, res) => {
@@ -33,6 +49,9 @@ router.post('/signupform', (req, res) => {
                     console.error(err);
                 console.log('Data Inserted - new user ' + req.body.userLogin);
             });
+
+            //Up here we need to stay logged 
+
             res.redirect('/');
         } else {
             res.render('error', {
