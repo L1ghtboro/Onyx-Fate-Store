@@ -7,31 +7,38 @@ block content
     .login-box
         ul.links
             li.signup-active
-                a.btn
+                a.goToSignInAnim
                     | Sign Up
             li.signin-inactive
-                a.btn
+                a.goToSignUpAnim
                     | Sign In
+
         form.form-signup(action='/signupform' method='POST' id='signupform' style='display: block')
             .user-box
-                input#collectEMAIL(type='text' name='userEmail', required='')
-                label E-mail
+                .emailSignUp
+                    input#collectEMAIL(type='text' name='userEmail', required='')
+                    label E-mail
             .user-box
-                input#collectLOGIN(type='text' name='userLogin', required='')
-                label Username
+                .loginSignUp
+                    input#collectLOGIN(type='text' name='userLogin', required='')
+                    label Username
             .user-box
-                input#collectPASS(type='password' name='userPassword', required='')
-                label Password
+                .passSignUp
+                    input#collectPASS(type='password' name='userPassword', required='')
+                    label Password
             .user-box
-                input#collectCONFIRMATION(type='password' name='userConfirmations', required='')
-                label Confirm Password
+                .confirmSignUp
+                    input#collectCONFIRMATION(type='password' name='userConfirmations', required='')
+                    label Confirm Password
             .user-box
-                input#collectNAME(type='text' name='userName', required='')
-                label Name
+                .nameSignUp
+                    input#collectNAME(type='text' name='userName', required='')
+                    label Name
             .user-box
-                input#collectLASTNAME(type='text' name='userLastname', required='')
-                label Lastname
-            a(href='javascript:;' onclick="anchorSubmit('signupform')")
+                .lastnameSignUp
+                    input#collectLASTNAME(type='text' name='userLastname', required='')
+                    label Lastname
+            a(href='javascript:;' onclick="anchorSubmit('signupform')").submitUpForm
                 span
                 span
                 span
@@ -40,12 +47,14 @@ block content
 
         form.form-signin(action='/signinform' method='POST' id='signinform' style='display: none')
             .user-box
-                input#collectEMAIL(type='text' name='userEmailLogin', required='')
-                label E-mail
+                .emailSignIn
+                    input#collectEMAILIN(type='text' name='userEmailLogin', required='')
+                    label E-mail
             .user-box
-                input#collectPASS(type='password' name='userPasswordLogin', required='')
-                label Password
-            a(href='javascript:;' onclick="anchorSubmit('signinform')")
+                .passSignIn
+                    input#collectPASSIN(type='password' name='userPasswordLogin', required='')
+                    label Password
+            a(href='javascript:;' onclick="anchorSubmit('signinform')").submitInForm
                 span
                 span
                 span
