@@ -7,13 +7,14 @@ let bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 const checksign_1 = require("../public/typescripts/checksign");
 const logindto_1 = require("../public/typescripts/logindto");
-const cookiesengage_1 = require("../public/javascripts/cookiesengage");
+const cookiesengage_1 = require("../public/typescripts/cookiesengage");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+global.document = new JSDOM('/').window.document;
 const jwt = require('jsonwebtoken');
 var user_token = jwt.sign({ foo: 'bar' }, 'shhh');
 router.get('/', (req, res) => {
-    (0, cookiesengage_1.setCookie)('Artem', '18');
+    (0, cookiesengage_1.deleteCookie)('jwt', res);
     res.render('index', { title: 'Main Page', signedStatus: 'Sign Up' });
 });
 router.get('/login', (req, res) => {

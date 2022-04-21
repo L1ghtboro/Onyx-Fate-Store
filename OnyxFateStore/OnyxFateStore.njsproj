@@ -38,9 +38,6 @@
     <None Include="routes\user.ts" />
     <None Include="Properties\PublishProfiles\Onyx-Fate-Store - Web Deploy.pubxml" />
     <Content Include="public\images\mord.svg" />
-    <Content Include="public\javascripts\cookiesengage.js">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="public\javascripts\error.js" />
     <Content Include="public\javascripts\loop.js">
       <SubType>Code</SubType>

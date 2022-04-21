@@ -1,25 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteCookie = exports.getCookie = exports.setCookie = void 0;
-function setCookie(name, val) {
-    const date = new Date();
-    const value = val;
-    date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
-    document.cookie = name + "=" + value + "; expires=" + date.toUTCString() + "; path=/";
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+global.document = new JSDOM('/').window.document;
+function setCookie(name, val, res) {
+    res.cookie(name, val, {
+        expires: new Date(Date.now()),
+        httpOnly: true,
+        secure: true
+    });
 }
 exports.setCookie = setCookie;
-function getCookie(name) {
-    const value = "; " + document.cookie;
-    const parts = value.split("; " + name + "=");
-    if (parts.length == 2) {
-        return parts.pop().split(";").shift();
-    }
+function getCookie(name, req) {
+    return req.cookies;
 }
 exports.getCookie = getCookie;
-function deleteCookie(name) {
-    const date = new Date();
-    date.setTime(date.getTime() + (-1 * 24 * 60 * 60 * 1000));
-    document.cookie = name + "=; expires=" + date.toUTCString() + "; path=/";
+function deleteCookie(name, res) {
+    res.clearCookie(name);
 }
 exports.deleteCookie = deleteCookie;
 //# sourceMappingURL=cookiesengage.js.map

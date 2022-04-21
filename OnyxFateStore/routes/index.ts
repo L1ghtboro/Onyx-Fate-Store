@@ -10,15 +10,18 @@ import { validation } from '../public/typescripts/checksign';
 
 import { createSignUpDTO } from '../public/typescripts/logindto';
 
-import { setCookie, getCookie, deleteCookie } from '../public/typescripts/cookiesengage';
+import { Cookie } from '../public/typescripts/cookiesengage';
+const cookies = new Cookie();
 
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+global.document = new JSDOM('/').window.document;
 
 const jwt = require('jsonwebtoken');
 var user_token = jwt.sign({ foo: 'bar' }, 'shhh');
 
 router.get('/', (req: express.Request, res: express.Response) => {
+    
     res.render('index', { title: 'Main Page', signedStatus: 'Sign Up'});
 });
 

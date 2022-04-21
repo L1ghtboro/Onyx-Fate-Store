@@ -1,23 +1,30 @@
-export function setCookie(name: string, val: string) {
-    const date = new Date();
-    const value = val;
+import express = require('express');
 
-    date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
-    document.cookie = name + "=" + value + "; expires=" + date.toUTCString() + "; path=/";
-}
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+global.document = new JSDOM('/').window.document;
 
-export function getCookie(name: string) {
-    const value = "; " + document.cookie;
-    const parts = value.split("; " + name + "=");
 
-    if (parts.length == 2) {
-        return parts.pop().split(";").shift();
+
+export class Cookie {
+    setCookie(name: any, val: any, res: express.Response) {
+        res.cookie(name, val, {
+            expires: new Date(Date.now()),
+            httpOnly: true,
+            secure: true,
+            path: '/'
+        });
+    }
+
+    getCookie(name: any, req: express.Request) {
+        return req.cookies;
+    }
+
+    deleteCookie(name: any, res: express.Response) {
+        res.clearCookie(name);
     }
 }
 
-export function deleteCookie(name: string) {
-    const date = new Date();
+let Cookies = new Cookie();
 
-    date.setTime(date.getTime() + (-1 * 24 * 60 * 60 * 1000));
-    document.cookie = name + "=; expires=" + date.toUTCString() + "; path=/";
-}
+export default Cookies
