@@ -10,18 +10,17 @@ import { validation } from '../public/typescripts/checksign';
 
 import { createSignUpDTO } from '../public/typescripts/logindto';
 
-import { Cookie } from '../public/typescripts/cookiesengage';
-const cookies = new Cookie();
+import cookies  from '../public/typescripts/cookiesengage';
 
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 global.document = new JSDOM('/').window.document;
 
+import { Authorize } from '../public/typescripts/authorization';
+
 const jwt = require('jsonwebtoken');
-var user_token = jwt.sign({ foo: 'bar' }, 'shhh');
 
 router.get('/', (req: express.Request, res: express.Response) => {
-    
     res.render('index', { title: 'Main Page', signedStatus: 'Sign Up'});
 });
 
@@ -33,8 +32,13 @@ router.get('/model', (req: express.Request, res: express.Response) => {
     //Figure how to browse model#id
 });
 
-router.post('/signinfirm', (req: express.Request, res: express.Response) => {
+router.get('/profile', (req: express.Request, res: express.Response) => {
+    //browse user profile
+});
+
+router.post('/signinform', (req: express.Request, res: express.Response) => {
     //Sign In
+    res.send('Hui');
 });
 
 router.post('/signupform', (req, res) => {

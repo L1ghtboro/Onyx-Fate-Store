@@ -39,6 +39,9 @@
     <None Include="Properties\PublishProfiles\Onyx-Fate-Store - Web Deploy.pubxml" />
     <Content Include="public\images\mord.svg" />
     <Content Include="public\javascripts\error.js" />
+    <Content Include="public\javascripts\jQuery-dist.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\javascripts\loop.js">
       <SubType>Code</SubType>
     </Content>
@@ -87,6 +90,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="connection\createconnection.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\typescripts\authorization.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\typescripts\checksign.ts">

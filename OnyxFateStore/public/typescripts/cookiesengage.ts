@@ -9,7 +9,8 @@ global.document = new JSDOM('/').window.document;
 export class Cookie {
     setCookie(name: any, val: any, res: express.Response) {
         res.cookie(name, val, {
-            expires: new Date(Date.now()),
+            //expires: new Date(Date.now() + 60 * 60) ,
+            maxAge: 60 * 60 * 24, 
             httpOnly: true,
             secure: true,
             path: '/'
@@ -25,6 +26,6 @@ export class Cookie {
     }
 }
 
-let Cookies = new Cookie();
+let cookies = new Cookie();
 
-export default Cookies
+export default cookies
