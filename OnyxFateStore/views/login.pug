@@ -38,7 +38,7 @@ block content
                 .lastnameSignUp
                     input#collectLASTNAME(type='text' name='userLastname', required='')
                     label Lastname
-            a(href='javascript:;' onclick="anchorSubmit('signupform')").submitUpForm
+            a.submitUpForm(href='javascript:;' onclick="anchorSubmit('signupform')")
                 span
                 span
                 span
@@ -54,7 +54,7 @@ block content
                 .passSignIn
                     input#collectPASSIN(type='password' name='userPasswordLogin', required='')
                     label Password
-            a(href='javascript:;' onclick="anchorSubmit('signinform')").submitInForm
+            a.submitInForm(href='javascript:;' onclick="anchorSubmit('signinform')")
                 span
                 span
                 span

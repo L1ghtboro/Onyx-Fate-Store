@@ -23,6 +23,7 @@ const makeQuery = (query, _callback) => {
             connection.close();
             if (err)
                 return _callback(err, null);
+            console.log(rows);
             _callback(null, { rowCount, rows });
         });
         connection.execSql(request);

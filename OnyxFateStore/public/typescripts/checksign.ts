@@ -18,7 +18,7 @@ export function validation(toValid) {
 
     makeQuery(`SELECT *
         FROM LoginInfo
-        WHERE  '${toValid.userEmail}' in (user_email);`, (err: any, data: { rowCount: any; }) => {
+        WHERE  '${toValid.userEmail}' in (user_email);`, (err: any, data: { rowCount: any, rows: any }) => {
         if (err)
             console.error(err);
         findEmail = data.rowCount;
@@ -26,7 +26,7 @@ export function validation(toValid) {
 
     makeQuery(`SELECT *
         FROM LoginInfo
-        WHERE  '${toValid.userLogin}' in (user_login);`, (err: any, data: { rowCount: any; }) => {
+        WHERE  '${toValid.userLogin}' in (user_login);`, (err: any, data: { rowCount: any, rows: any }) => {
         if (err)
             console.error(err);
         findLogins = data.rowCount;

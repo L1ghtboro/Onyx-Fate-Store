@@ -25,8 +25,8 @@ export const makeQuery = (query, _callback) => {
             connection.close();
             if (err)
                 return _callback(err, null);
-            _callback(null, { rowCount, rows });
+            _callback(null, { rowCount, rows });        
         });
-        connection.execSql(request);
+        connection.execSql(request);       
     });
 };

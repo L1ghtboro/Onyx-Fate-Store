@@ -37,8 +37,7 @@ router.get('/profile', (req: express.Request, res: express.Response) => {
 });
 
 router.post('/signinform', (req: express.Request, res: express.Response) => {
-    //Sign In
-    res.send('Hui');
+    res.send(req.body);
 });
 
 router.post('/signupform', (req, res) => {
@@ -49,7 +48,7 @@ router.post('/signupform', (req, res) => {
         if (validation(req.body)) {
             req.body = createSignUpDTO(req.body);
             req.body.userRole = 'User';
-            console.log(req.body);
+
             makeQuery(`INSERT INTO LoginInfo(user_login, user_email, user_password, user_name, user_lastname, user_role) 
             VALUES('${req.body.userLogin}', '${req.body.userEmail}', '${req.body.userPassword}', '${req.body.userName}', '${req.body.userLastname}', '${req.body.userRole}'); `, (err: any) => {
                 if (err)

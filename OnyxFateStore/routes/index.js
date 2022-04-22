@@ -24,8 +24,7 @@ router.get('/profile', (req, res) => {
     //browse user profile
 });
 router.post('/signinform', (req, res) => {
-    //Sign In
-    res.send('Hui');
+    res.send(req.body);
 });
 router.post('/signupform', (req, res) => {
     (0, checksign_1.validation)(req.body);
@@ -33,7 +32,6 @@ router.post('/signupform', (req, res) => {
         if ((0, checksign_1.validation)(req.body)) {
             req.body = (0, logindto_1.createSignUpDTO)(req.body);
             req.body.userRole = 'User';
-            console.log(req.body);
             (0, createconnection_1.makeQuery)(`INSERT INTO LoginInfo(user_login, user_email, user_password, user_name, user_lastname, user_role) 
             VALUES('${req.body.userLogin}', '${req.body.userEmail}', '${req.body.userPassword}', '${req.body.userName}', '${req.body.userLastname}', '${req.body.userRole}'); `, (err) => {
                 if (err)

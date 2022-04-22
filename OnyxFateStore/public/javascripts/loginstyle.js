@@ -22,6 +22,10 @@ $(function () {
                             if ($('.nameSignUp').is(':visible')) {
                                 $('#signupform').fadeOut(2400);
                                 if ($('.nameSignUp').is(':visible')) {
+                                    $('.signup-active').addClass('signup-inactive');
+                                    $('.signup-inactive').removeClass('signup-active');
+                                    $('.signin-inactive').addClass('signin-active');
+                                    $('.signin-active').removeClass('signin-inactive');
                                     setTimeout(function () {
                                         $('.emailSignIn').fadeIn(2400);
                                         $('.passSignIn').fadeIn(2700);
