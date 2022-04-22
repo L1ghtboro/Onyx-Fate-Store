@@ -37,7 +37,16 @@ router.get('/profile', (req: express.Request, res: express.Response) => {
 });
 
 router.post('/signinform', (req: express.Request, res: express.Response) => {
-    res.send(req.body);
+    const authorization = new Authorize();
+    authorization.makeQueryToCheck(req.body);
+    setTimeout(function () {
+        if (authorization.makeQueryToCheck(req.body)) {
+            console.log(authorization.receivedCol);
+            res.send('1');
+        } else {
+            res.send('2');
+        }
+    }, 3000)
 });
 
 router.post('/signupform', (req, res) => {

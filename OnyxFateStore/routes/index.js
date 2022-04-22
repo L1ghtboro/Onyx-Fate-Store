@@ -10,6 +10,7 @@ const logindto_1 = require("../public/typescripts/logindto");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 global.document = new JSDOM('/').window.document;
+const authorization_1 = require("../public/typescripts/authorization");
 const jwt = require('jsonwebtoken');
 router.get('/', (req, res) => {
     res.render('index', { title: 'Main Page', signedStatus: 'Sign Up' });
@@ -24,7 +25,17 @@ router.get('/profile', (req, res) => {
     //browse user profile
 });
 router.post('/signinform', (req, res) => {
-    res.send(req.body);
+    const authorization = new authorization_1.Authorize();
+    authorization.makeQueryToCheck(req.body);
+    setTimeout(function () {
+        if (authorization.makeQueryToCheck(req.body)) {
+            console.log(authorization.receivedCol);
+            res.send('1');
+        }
+        else {
+            res.send('2');
+        }
+    }, 3000);
 });
 router.post('/signupform', (req, res) => {
     (0, checksign_1.validation)(req.body);

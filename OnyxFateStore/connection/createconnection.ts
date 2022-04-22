@@ -28,5 +28,6 @@ export const makeQuery = (query, _callback) => {
             _callback(null, { rowCount, rows });        
         });
         connection.execSql(request);       
+        request.on('row', function (columns) { console.log(columns); });
     });
 };

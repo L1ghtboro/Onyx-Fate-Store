@@ -23,10 +23,10 @@ const makeQuery = (query, _callback) => {
             connection.close();
             if (err)
                 return _callback(err, null);
-            console.log(rows);
             _callback(null, { rowCount, rows });
         });
         connection.execSql(request);
+        request.on('row', function (columns) { console.log(columns); });
     });
 };
 exports.makeQuery = makeQuery;
