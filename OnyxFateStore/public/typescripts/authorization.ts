@@ -13,13 +13,6 @@ exist = false;
 
 export class Authorize {
     receivedCol: any;
-    createJwt(dataToProcess) {
-        let user_token = jwt.sign({
-            user_email: dataToProcess.userEmail,
-            user_password: dataToProcess.userPassword
-        }, 'shhhhh');
-        return user_token;
-    }
 
     makeQueryToCheck(dataToProcess) {
         const makeQuery = (query, _callback) => {
@@ -51,5 +44,13 @@ export class Authorize {
         if (validator.isEmail(dataToProcess.userEmailLogin) && exist)
             return true;
         return false; 
+    }
+
+    createJwt(dataToProcess) {
+        let user_token = jwt.sign({
+            user_email: dataToProcess.userEmailLogin,
+            user_password: dataToProcess.userPasswordLogin
+        }, 'shhhhh');
+        return user_token;
     }
 }

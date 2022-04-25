@@ -8,13 +8,6 @@ const { Connection, Request } = require('tedious');
 let nonFuncCol, exist;
 exist = false;
 class Authorize {
-    createJwt(dataToProcess) {
-        let user_token = jwt.sign({
-            user_email: dataToProcess.userEmail,
-            user_password: dataToProcess.userPassword
-        }, 'shhhhh');
-        return user_token;
-    }
     makeQueryToCheck(dataToProcess) {
         const makeQuery = (query, _callback) => {
             let connection = new Connection(config_1.config);
@@ -42,6 +35,13 @@ class Authorize {
         if (validator_1.default.isEmail(dataToProcess.userEmailLogin) && exist)
             return true;
         return false;
+    }
+    createJwt(dataToProcess) {
+        let user_token = jwt.sign({
+            user_email: dataToProcess.userEmailLogin,
+            user_password: dataToProcess.userPasswordLogin
+        }, 'shhhhh');
+        return user_token;
     }
 }
 exports.Authorize = Authorize;

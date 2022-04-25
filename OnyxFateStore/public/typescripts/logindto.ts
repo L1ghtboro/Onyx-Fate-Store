@@ -67,7 +67,15 @@ const decrypt = (salt, encoded) => {
 
 export function createSignUpDTO(toSignUp) {
     toSignUp.userPassword = crypt(toSignUp.userLogin, toSignUp.userPassword);
-    toSignUp.userConfirmations = toSignUp.userPassword;
-
     return toSignUp;
+}
+
+export function decrypSignInDTO(toSignIn) {
+    toSignIn.userPassword = decrypt(toSignIn.userLogin, toSignIn.userPassword);
+    return toSignIn;
+}
+
+export function cryptSignInDTO(toSignIn, nickname) {
+    toSignIn.userPasswordLogin = crypt(nickname, toSignIn.userPasswordLogin);
+    return toSignIn;
 }

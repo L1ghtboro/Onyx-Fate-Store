@@ -8,7 +8,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 import { validation } from '../public/typescripts/checksign';
 
-import { createSignUpDTO } from '../public/typescripts/logindto';
+import { createSignUpDTO, decrypSignInDTO, cryptSignInDTO } from '../public/typescripts/logindto';
 
 import cookies  from '../public/typescripts/cookiesengage';
 
@@ -41,8 +41,27 @@ router.post('/signinform', (req: express.Request, res: express.Response) => {
     authorization.makeQueryToCheck(req.body);
     setTimeout(function () {
         if (authorization.makeQueryToCheck(req.body)) {
-            console.log(authorization.receivedCol);
-            res.send('1');
+            let loginData = {
+                userID: authorization.receivedCol[0].value,
+                userLogin: authorization.receivedCol[1].value,
+                userPassword: authorization.receivedCol[2].value,
+                userName: authorization.receivedCol[3].value,
+                userLastname: authorization.receivedCol[4].value,
+                userEmail: authorization.receivedCol[5].value,
+                userPic: authorization.receivedCol[6].value,
+                userRole: authorization.receivedCol[7].value
+            };
+            cryptSignInDTO(req.body, loginData.userLogin);
+            console.log(loginData.userPassword, req.body.userPasswordLogin)
+            if (loginData.userPassword === req.body.userPasswordLogin) {
+                let user_token = authorization.createJwt(req.body);
+                cookies.setCookie(loginData.userLogin, user_token, res);
+            } else {
+                res.render('error', {
+                    message: 'You may entered a non existing login or email',
+                    error: 'If you forgot password'
+                });
+            }
         } else {
             res.send('2');
         }

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createSignUpDTO = void 0;
+exports.cryptSignInDTO = exports.decrypSignInDTO = exports.createSignUpDTO = void 0;
 const crypto = require("crypto");
 class Encryption {
     constructor(keyLowlevel, keyHighLevel, keyBias) {
@@ -54,8 +54,17 @@ const decrypt = (salt, encoded) => {
 };
 function createSignUpDTO(toSignUp) {
     toSignUp.userPassword = crypt(toSignUp.userLogin, toSignUp.userPassword);
-    toSignUp.userConfirmations = toSignUp.userPassword;
     return toSignUp;
 }
 exports.createSignUpDTO = createSignUpDTO;
+function decrypSignInDTO(toSignIn) {
+    toSignIn.userPassword = decrypt(toSignIn.userLogin, toSignIn.userPassword);
+    return toSignIn;
+}
+exports.decrypSignInDTO = decrypSignInDTO;
+function cryptSignInDTO(toSignIn, nickname) {
+    toSignIn.userPasswordLogin = crypt(nickname, toSignIn.userPasswordLogin);
+    return toSignIn;
+}
+exports.cryptSignInDTO = cryptSignInDTO;
 //# sourceMappingURL=logindto.js.map

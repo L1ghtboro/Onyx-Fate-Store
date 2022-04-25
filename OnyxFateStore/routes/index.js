@@ -7,6 +7,7 @@ let bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 const checksign_1 = require("../public/typescripts/checksign");
 const logindto_1 = require("../public/typescripts/logindto");
+const cookiesengage_1 = require("../public/typescripts/cookiesengage");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 global.document = new JSDOM('/').window.document;
@@ -29,7 +30,22 @@ router.post('/signinform', (req, res) => {
     authorization.makeQueryToCheck(req.body);
     setTimeout(function () {
         if (authorization.makeQueryToCheck(req.body)) {
-            console.log(authorization.receivedCol);
+            let loginData = {
+                userID: authorization.receivedCol[0].value,
+                userLogin: authorization.receivedCol[1].value,
+                userPassword: authorization.receivedCol[2].value,
+                userName: authorization.receivedCol[3].value,
+                userLastname: authorization.receivedCol[4].value,
+                userEmail: authorization.receivedCol[5].value,
+                userPic: authorization.receivedCol[6].value,
+                userRole: authorization.receivedCol[7].value
+            };
+            (0, logindto_1.cryptSignInDTO)(req.body, loginData.userLogin);
+            console.log(loginData.userPassword, req.body.userPasswordLogin);
+            if (loginData.userPassword === req.body.userPasswordLogin) {
+                let user_token = authorization.createJwt(req.body);
+                cookiesengage_1.default.setCookie(loginData.userLogin, user_token, res);
+            }
             res.send('1');
         }
         else {
