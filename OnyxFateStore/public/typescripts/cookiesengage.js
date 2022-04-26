@@ -14,6 +14,9 @@ class Cookie {
             path: '/'
         });
     }
+    getAllCookie(req) {
+        return req.headers.cookie;
+    }
     getCookie(name, req) {
         return req.cookies;
     }

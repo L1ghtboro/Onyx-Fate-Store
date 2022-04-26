@@ -17,6 +17,8 @@ router.get('/profile', (req: express.Request, res: express.Response) => {
     //Check if logged - render profile.pug
 
     //if not - send to BRAZIL
+
+    res.send('Profile page');
 });
 
 

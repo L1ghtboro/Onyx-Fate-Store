@@ -13,6 +13,7 @@ router.get('/history', (req, res) => {
 router.get('/profile', (req, res) => {
     //Check if logged - render profile.pug
     //if not - send to BRAZIL
+    res.send('Profile page');
 });
 exports.default = router;
 //# sourceMappingURL=user.js.map

@@ -13,8 +13,16 @@ const { JSDOM } = jsdom;
 global.document = new JSDOM('/').window.document;
 const authorization_1 = require("../public/typescripts/authorization");
 const jwt = require('jsonwebtoken');
+let user_token = null;
 router.get('/', (req, res) => {
-    res.render('index', { title: 'Main Page', signedStatus: 'Sign Up' });
+    if (user_token === null)
+        res.render('index', {
+            title: 'Main Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login'
+        });
+    else
+        res.render('index', {
+            title: 'Main Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
+        });
 });
 router.get('/login', (req, res) => {
     res.render('login', { title: 'Login Page' });
@@ -23,7 +31,7 @@ router.get('/model', (req, res) => {
     //Figure how to browse model#id
 });
 router.get('/profile', (req, res) => {
-    //browse user profile
+    res.send('Profile page');
 });
 router.post('/signinform', (req, res) => {
     const authorization = new authorization_1.Authorize();
@@ -41,12 +49,17 @@ router.post('/signinform', (req, res) => {
                 userRole: authorization.receivedCol[7].value
             };
             (0, logindto_1.cryptSignInDTO)(req.body, loginData.userLogin);
-            console.log(loginData.userPassword, req.body.userPasswordLogin);
             if (loginData.userPassword === req.body.userPasswordLogin) {
-                let user_token = authorization.createJwt(req.body);
+                user_token = authorization.createJwt(req.body);
                 cookiesengage_1.default.setCookie(loginData.userLogin, user_token, res);
+                res.redirect('/');
             }
-            res.send('1');
+            else {
+                res.render('error', {
+                    message: 'You may entered a non existing login or email',
+                    error: 'If you forgot password'
+                });
+            }
         }
         else {
             res.send('2');

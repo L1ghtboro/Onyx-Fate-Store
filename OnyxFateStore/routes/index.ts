@@ -19,9 +19,17 @@ global.document = new JSDOM('/').window.document;
 import { Authorize } from '../public/typescripts/authorization';
 
 const jwt = require('jsonwebtoken');
+let user_token = null;
 
 router.get('/', (req: express.Request, res: express.Response) => {
-    res.render('index', { title: 'Main Page', signedStatus: 'Sign Up'});
+    if(user_token === null)
+        res.render('index', {
+            title: 'Main Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login'
+        });
+    else 
+        res.render('index', {
+            title: 'Main Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
+        });
 });
 
 router.get('/login', (req: express.Request, res: express.Response) => {
@@ -33,7 +41,7 @@ router.get('/model', (req: express.Request, res: express.Response) => {
 });
 
 router.get('/profile', (req: express.Request, res: express.Response) => {
-    //browse user profile
+    res.send('Profile page');
 });
 
 router.post('/signinform', (req: express.Request, res: express.Response) => {
@@ -52,10 +60,10 @@ router.post('/signinform', (req: express.Request, res: express.Response) => {
                 userRole: authorization.receivedCol[7].value
             };
             cryptSignInDTO(req.body, loginData.userLogin);
-            console.log(loginData.userPassword, req.body.userPasswordLogin)
             if (loginData.userPassword === req.body.userPasswordLogin) {
-                let user_token = authorization.createJwt(req.body);
+                user_token = authorization.createJwt(req.body);
                 cookies.setCookie(loginData.userLogin, user_token, res);
+                res.redirect('/');
             } else {
                 res.render('error', {
                     message: 'You may entered a non existing login or email',

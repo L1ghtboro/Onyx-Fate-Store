@@ -71,3 +71,11 @@ const toggleButton = document.querySelector('.dark-light');
 toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
 });
+
+$(function () {
+    if ($('.profile-page').text() === 'Sign Up') {
+        $(".profile-img").css("display", "none");
+    } else if ($('.profile-page').text() === ''){
+        $(".profile-img").css("display", "block");
+    }
+})

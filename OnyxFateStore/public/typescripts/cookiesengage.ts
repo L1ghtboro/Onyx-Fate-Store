@@ -17,6 +17,10 @@ export class Cookie {
         });
     }
 
+    getAllCookie(req: express.Request) {
+        return req.headers.cookie;
+    }
+
     getCookie(name: any, req: express.Request) {
         return req.cookies;
     }

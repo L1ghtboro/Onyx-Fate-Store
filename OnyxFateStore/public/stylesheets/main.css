@@ -269,7 +269,7 @@ body.light-mode .video-bg:before {
     }
 }
 
-.notsigned {
+.profile-page {
     text-decoration: none;
     color: var(--theme-color);
     display: flex;
@@ -281,7 +281,7 @@ body.light-mode .video-bg:before {
     transition: 0.3s;
 }
 
-    .notsigned:hover {
+    .profile-page:hover {
         color: var(--theme-color);
         border-bottom: 2px solid var(--theme-color);
     }
