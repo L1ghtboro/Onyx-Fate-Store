@@ -19,17 +19,20 @@ global.document = new JSDOM('/').window.document;
 import { Authorize } from '../public/typescripts/authorization';
 
 const jwt = require('jsonwebtoken');
-let user_token = null;
+let currentUser = null;
 
 router.get('/', (req: express.Request, res: express.Response) => {
-    if(user_token === null)
+    if (currentUser === null) {
         res.render('index', {
             title: 'Main Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login'
         });
-    else 
+    }
+    else {
+        console.log(currentUser);
         res.render('index', {
             title: 'Main Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
         });
+    }
 });
 
 router.get('/login', (req: express.Request, res: express.Response) => {
@@ -61,8 +64,9 @@ router.post('/signinform', (req: express.Request, res: express.Response) => {
             };
             cryptSignInDTO(req.body, loginData.userLogin);
             if (loginData.userPassword === req.body.userPasswordLogin) {
-                user_token = authorization.createJwt(req.body);
-                cookies.setCookie(loginData.userLogin, user_token, res);
+                //user_token = authorization.createJwt(req.body);
+                currentUser = loginData.userLogin
+                cookies.setCookie(loginData.userLogin, authorization.createJwt(req.body), res);
                 res.redirect('/');
             } else {
                 res.render('error', {

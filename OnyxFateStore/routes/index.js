@@ -13,16 +13,19 @@ const { JSDOM } = jsdom;
 global.document = new JSDOM('/').window.document;
 const authorization_1 = require("../public/typescripts/authorization");
 const jwt = require('jsonwebtoken');
-let user_token = null;
+let currentUser = null;
 router.get('/', (req, res) => {
-    if (user_token === null)
+    if (currentUser === null) {
         res.render('index', {
             title: 'Main Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login'
         });
-    else
+    }
+    else {
+        console.log(currentUser);
         res.render('index', {
             title: 'Main Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
         });
+    }
 });
 router.get('/login', (req, res) => {
     res.render('login', { title: 'Login Page' });
@@ -50,8 +53,9 @@ router.post('/signinform', (req, res) => {
             };
             (0, logindto_1.cryptSignInDTO)(req.body, loginData.userLogin);
             if (loginData.userPassword === req.body.userPasswordLogin) {
-                user_token = authorization.createJwt(req.body);
-                cookiesengage_1.default.setCookie(loginData.userLogin, user_token, res);
+                //user_token = authorization.createJwt(req.body);
+                currentUser = loginData.userLogin;
+                cookiesengage_1.default.setCookie(loginData.userLogin, authorization.createJwt(req.body), res);
                 res.redirect('/');
             }
             else {
