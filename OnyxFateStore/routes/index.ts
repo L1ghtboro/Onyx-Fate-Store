@@ -6,11 +6,11 @@ import { makeQuery } from '../connection/createconnection';
 let bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true })); 
 
-import { validation } from '../public/typescripts/checksign';
+import { validation } from '../public/typescripts/check-sign';
 
-import { createSignUpDTO, decrypSignInDTO, cryptSignInDTO } from '../public/typescripts/logindto';
+import { createSignUpDTO, decrypSignInDTO, cryptSignInDTO } from '../public/typescripts/login-dto';
 
-import cookies  from '../public/typescripts/cookiesengage';
+import cookies from '../public/typescripts/cookies-engage';
 
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
@@ -36,11 +36,12 @@ router.get('/', (req: express.Request, res: express.Response) => {
 });
 
 router.get('/login', (req: express.Request, res: express.Response) => {
-    res.render('login', {title: 'Login Page'});
+    res.render('login', { title: 'Login Page' });
+  
 });
 
 router.get('/model', (req: express.Request, res: express.Response) => {
-    //Figure how to browse model#id
+    res.render('model-page', { title: 'Model Page', model: "undefined" });
 });
 
 router.get('/profile', (req: express.Request, res: express.Response) => {

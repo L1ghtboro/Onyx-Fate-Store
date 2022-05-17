@@ -5,9 +5,9 @@ const router = express.Router();
 const createconnection_1 = require("../connection/createconnection");
 let bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
-const checksign_1 = require("../public/typescripts/checksign");
-const logindto_1 = require("../public/typescripts/logindto");
-const cookiesengage_1 = require("../public/typescripts/cookiesengage");
+const check_sign_1 = require("../public/typescripts/check-sign");
+const login_dto_1 = require("../public/typescripts/login-dto");
+const cookies_engage_1 = require("../public/typescripts/cookies-engage");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 global.document = new JSDOM('/').window.document;
@@ -31,7 +31,7 @@ router.get('/login', (req, res) => {
     res.render('login', { title: 'Login Page' });
 });
 router.get('/model', (req, res) => {
-    //Figure how to browse model#id
+    res.render('model-page', { title: 'Model Page', model: "undefined" });
 });
 router.get('/profile', (req, res) => {
     res.send('Profile page');
@@ -51,11 +51,11 @@ router.post('/signinform', (req, res) => {
                 userPic: authorization.receivedCol[6].value,
                 userRole: authorization.receivedCol[7].value
             };
-            (0, logindto_1.cryptSignInDTO)(req.body, loginData.userLogin);
+            (0, login_dto_1.cryptSignInDTO)(req.body, loginData.userLogin);
             if (loginData.userPassword === req.body.userPasswordLogin) {
                 //user_token = authorization.createJwt(req.body);
                 currentUser = loginData.userLogin;
-                cookiesengage_1.default.setCookie(loginData.userLogin, authorization.createJwt(req.body), res);
+                cookies_engage_1.default.setCookie(loginData.userLogin, authorization.createJwt(req.body), res);
                 res.redirect('/');
             }
             else {
@@ -71,10 +71,10 @@ router.post('/signinform', (req, res) => {
     }, 3000);
 });
 router.post('/signupform', (req, res) => {
-    (0, checksign_1.validation)(req.body);
+    (0, check_sign_1.validation)(req.body);
     setTimeout(function () {
-        if ((0, checksign_1.validation)(req.body)) {
-            req.body = (0, logindto_1.createSignUpDTO)(req.body);
+        if ((0, check_sign_1.validation)(req.body)) {
+            req.body = (0, login_dto_1.createSignUpDTO)(req.body);
             req.body.userRole = 'User';
             (0, createconnection_1.makeQuery)(`INSERT INTO LoginInfo(user_login, user_email, user_password, user_name, user_lastname, user_role) 
             VALUES('${req.body.userLogin}', '${req.body.userEmail}', '${req.body.userPassword}', '${req.body.userName}', '${req.body.userLastname}', '${req.body.userRole}'); `, (err) => {

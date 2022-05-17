@@ -25,6 +25,8 @@
     "pug": "^2.0.4",
     "stringify": "^5.2.0",
     "tedious": "^14.4.0",
+    "three": "^0.140.2",
+    "three-orbit-controls": "^82.1.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {

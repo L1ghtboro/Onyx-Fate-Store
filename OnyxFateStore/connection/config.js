@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = void 0;
 exports.config = {
-    server: "onyx-fate-store.database.windows.net",
+    server: "ARTEM-SKOROPADS",
     options: {
         database: "Onyx-Assets",
         encrypt: true
