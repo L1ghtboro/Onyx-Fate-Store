@@ -39,6 +39,9 @@
     <None Include="Properties\PublishProfiles\Onyx-Fate-Store - Web Deploy.pubxml" />
     <Content Include="public\images\mord.svg" />
     <Content Include="public\javascripts\error.js" />
+    <Content Include="public\javascripts\http-query.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\javascripts\loop.js">
       <SubType>Code</SubType>
     </Content>
@@ -70,10 +73,16 @@
     <Content Include="views\layout-model.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\layout-profile.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\layout.pug" />
     <Content Include="views\layout-login.pug" />
     <Content Include="views\login.pug" />
     <Content Include="views\model-page.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\profile-page.pug">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Web.config" />

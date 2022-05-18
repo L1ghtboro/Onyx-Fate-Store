@@ -13,7 +13,7 @@ exist = false;
 
 export class Authorize {
     receivedCol: any;
-
+    user_token: any;
     makeQueryToCheck(dataToProcess) {
         const makeQuery = (query, _callback) => {
             let connection = new Connection(config);
@@ -47,10 +47,16 @@ export class Authorize {
     }
 
     createJwt(dataToProcess) {
-        let user_token = jwt.sign({
+         this.user_token = jwt.sign({
             user_email: dataToProcess.userEmailLogin,
             user_password: dataToProcess.userPasswordLogin
         }, 'shhhhh');
-        return user_token;
+        return this.user_token;
+    }
+
+    getToken() {
+        return this.user_token;
     }
 }
+
+export const authorization = new Authorize();

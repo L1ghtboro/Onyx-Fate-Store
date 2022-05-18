@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
         });
     }
     else {
-        console.log(currentUser);
         res.render('index', {
             title: 'Main Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
         });
@@ -31,42 +30,68 @@ router.get('/login', (req, res) => {
     res.render('login', { title: 'Login Page' });
 });
 router.get('/model', (req, res) => {
-    res.render('model-page', { title: 'Model Page', model: "undefined" });
+    if (currentUser === null) {
+        res.render('model-page', {
+            title: 'Model Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login', model: "undefined"
+        });
+    }
+    else {
+        res.render('model-page', {
+            title: 'Model Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', model: "undefined"
+        });
+    }
 });
 router.get('/profile', (req, res) => {
-    res.send('Profile page');
+    if (currentUser === null) {
+        res.render('error', {
+            message: 'To enter this page you must be logged in',
+            error: 'Access denied, not enough permissions'
+        });
+    }
+    else {
+        res.render('profile-page', {
+            title: 'Profle Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
+        });
+    }
+});
+router.get('/logout', (req, res) => {
+    res.clearCookie(currentUser);
+    currentUser = null;
+    res.redirect('/');
 });
 router.post('/signinform', (req, res) => {
-    const authorization = new authorization_1.Authorize();
-    authorization.makeQueryToCheck(req.body);
+    authorization_1.authorization.makeQueryToCheck(req.body);
     setTimeout(function () {
-        if (authorization.makeQueryToCheck(req.body)) {
+        if (authorization_1.authorization.makeQueryToCheck(req.body)) {
             let loginData = {
-                userID: authorization.receivedCol[0].value,
-                userLogin: authorization.receivedCol[1].value,
-                userPassword: authorization.receivedCol[2].value,
-                userName: authorization.receivedCol[3].value,
-                userLastname: authorization.receivedCol[4].value,
-                userEmail: authorization.receivedCol[5].value,
-                userPic: authorization.receivedCol[6].value,
-                userRole: authorization.receivedCol[7].value
+                userID: authorization_1.authorization.receivedCol[0].value,
+                userLogin: authorization_1.authorization.receivedCol[1].value,
+                userPassword: authorization_1.authorization.receivedCol[2].value,
+                userName: authorization_1.authorization.receivedCol[3].value,
+                userLastname: authorization_1.authorization.receivedCol[4].value,
+                userEmail: authorization_1.authorization.receivedCol[5].value,
+                userPic: authorization_1.authorization.receivedCol[6].value,
+                userRole: authorization_1.authorization.receivedCol[7].value
             };
             (0, login_dto_1.cryptSignInDTO)(req.body, loginData.userLogin);
             if (loginData.userPassword === req.body.userPasswordLogin) {
                 //user_token = authorization.createJwt(req.body);
                 currentUser = loginData.userLogin;
-                cookies_engage_1.default.setCookie(loginData.userLogin, authorization.createJwt(req.body), res);
+                cookies_engage_1.default.setCookie(loginData.userLogin, authorization_1.authorization.createJwt(req.body), res);
                 res.redirect('/');
             }
             else {
                 res.render('error', {
                     message: 'You may entered a non existing login or email',
-                    error: 'If you forgot password'
+                    error: 'Login check failed, data doesn\'t match'
                 });
             }
         }
         else {
-            res.send('2');
+            res.render('error', {
+                message: 'You can\'t leave incompleted form',
+                error: 'Login incompleted form'
+            });
         }
     }, 3000);
 });
@@ -88,7 +113,7 @@ router.post('/signupform', (req, res) => {
         else {
             res.render('error', {
                 message: 'You may entered an existing login or email',
-                error: 'An error occurred'
+                error: 'This user already exists'
             });
         }
     }, 3000);

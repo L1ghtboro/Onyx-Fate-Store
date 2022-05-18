@@ -7,9 +7,6 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth/2.5, window.innerHeight/2.5);
-//const container = document.getElementsByClassName('model-hub');
-//document.body.appendChild(container);
-//container.appendChild(renderer.domElement);
 
 $('.model-hub').append(renderer.domElement);
 

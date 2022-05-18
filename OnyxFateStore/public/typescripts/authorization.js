@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Authorize = void 0;
+exports.authorization = exports.Authorize = void 0;
 const jwt = require('jsonwebtoken');
 const validator_1 = require("validator");
 const config_1 = require("../../connection/config");
@@ -37,12 +37,16 @@ class Authorize {
         return false;
     }
     createJwt(dataToProcess) {
-        let user_token = jwt.sign({
+        this.user_token = jwt.sign({
             user_email: dataToProcess.userEmailLogin,
             user_password: dataToProcess.userPasswordLogin
         }, 'shhhhh');
-        return user_token;
+        return this.user_token;
+    }
+    getToken() {
+        return this.user_token;
     }
 }
 exports.Authorize = Authorize;
+exports.authorization = new Authorize();
 //# sourceMappingURL=authorization.js.map

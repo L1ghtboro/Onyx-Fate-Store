@@ -127,6 +127,13 @@ body {
             outline: none;
             background: transparent;
         }
+            .login-box .user-box input:-webkit-autofill,
+            .login-box .user-box input:-webkit-autofill:hover,
+            .login-box .user-box input:-webkit-autofill:focus,
+            .login-box .user-box input:-webkit-autofill:active {
+                -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+                -webkit-transition-delay: 9999s;
+            }
 
         .login-box .user-box label {
             position: absolute;

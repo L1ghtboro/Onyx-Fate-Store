@@ -16,7 +16,7 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 global.document = new JSDOM('/').window.document;
 
-import { Authorize } from '../public/typescripts/authorization';
+import { authorization } from '../public/typescripts/authorization';
 
 const jwt = require('jsonwebtoken');
 let currentUser = null;
@@ -28,7 +28,6 @@ router.get('/', (req: express.Request, res: express.Response) => {
         });
     }
     else {
-        console.log(currentUser);
         res.render('index', {
             title: 'Main Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
         });
@@ -41,15 +40,40 @@ router.get('/login', (req: express.Request, res: express.Response) => {
 });
 
 router.get('/model', (req: express.Request, res: express.Response) => {
-    res.render('model-page', { title: 'Model Page', model: "undefined" });
+    if (currentUser === null) {
+        res.render('model-page', {
+            title: 'Model Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login', model: "undefined"
+        });
+    }
+    else {
+        res.render('model-page', {
+            title: 'Model Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', model: "undefined"
+        });
+    }
 });
 
 router.get('/profile', (req: express.Request, res: express.Response) => {
-    res.send('Profile page');
+    if (currentUser === null) {
+        res.render('error', {
+            message: 'To enter this page you must be logged in',
+            error: 'Access denied, not enough permissions'
+        });
+    }
+    else {
+        res.render('profile-page', {
+            title: 'Profle Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
+        });
+    }
+});
+
+router.get('/logout', (req: express.Request, res: express.Response) => {
+    res.clearCookie(currentUser);
+    currentUser = null;
+    res.redirect('/');
 });
 
 router.post('/signinform', (req: express.Request, res: express.Response) => {
-    const authorization = new Authorize();
+    
     authorization.makeQueryToCheck(req.body);
     setTimeout(function () {
         if (authorization.makeQueryToCheck(req.body)) {
@@ -72,11 +96,14 @@ router.post('/signinform', (req: express.Request, res: express.Response) => {
             } else {
                 res.render('error', {
                     message: 'You may entered a non existing login or email',
-                    error: 'If you forgot password'
+                    error: 'Login check failed, data doesn\'t match'
                 });
             }
         } else {
-            res.send('2');
+            res.render('error', {
+                message: 'You can\'t leave incompleted form',
+                error: 'Login incompleted form'
+            });
         }
     }, 3000)
 });
@@ -103,7 +130,7 @@ router.post('/signupform', (req, res) => {
         } else {
             res.render('error', {
                 message: 'You may entered an existing login or email',
-                error: 'An error occurred'
+                error: 'This user already exists'
             });
         }
     }, 3000);

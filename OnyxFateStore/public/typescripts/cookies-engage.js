@@ -7,7 +7,6 @@ global.document = new JSDOM('/').window.document;
 class Cookie {
     setCookie(name, val, res) {
         res.cookie(name, val, {
-            //expires: new Date(Date.now() + 60 * 60) ,
             maxAge: 60 * 60 * 24,
             httpOnly: true,
             secure: true,

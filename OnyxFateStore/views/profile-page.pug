@@ -1,0 +1,45 @@
+extends layout-profile
+
+block content
+  .preloader
+    .loader
+  .dark-light
+    svg(viewbox='0 0 24 24' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round')
+      path(d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z')
+  .app
+    .header
+      .header-menu
+        a.menu-link.is-active(href='#') Back to store
+        a.menu-link(href='#') News
+      .header-profile
+        a.notification(href='checkout')
+          svg#Layer_1(version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='40px' height='36px' viewbox='0 0 40 36' style='enable-background:new 0 0 40 36;' xml:space='preserve')
+            g#Page-1_4_(sketch:type='MSPage')
+                g#Desktop_4_(transform='translate(-84.000000, -410.000000)' sketch:type='MSArtboardGroup')
+                    path#cart.st0(sketch:type='MSShapeGroup' d='M94.5,434.6h24.8l4.7-15.7H92.2l-1.3-8.9H84v4.8h3.1l3.7,27.8h0.1\c0,1.9,1.8,3.4,3.9,3.4c2.2,0,3.9-1.5,3.9-3.4h12.8c0,1.9,1.8,3.4,3.9,3.4c2.2,0,3.9-1.5,3.9-3.4h1.7v-3.9l-25.8-0.1L94.5,434.6')
+        a.profile-page(href= signURL)= signedText
+            img.profile-img(src='https://data.whicdn.com/images/348571022/original.jpg' alt='')         
+    .wrapper
+      .left-side
+        .side-wrapper
+          .side-title Short-links
+          .side-menu
+            a(href='/history-page')
+              |       History page 
+            a(href='/logout')
+              |       Log-out 
+      .main-container
+        .content-wrapper
+          .content-section
+            .content-section
+                .content-main-separator
+                    .upload-picture
+                        span  
+                            |         Upload Picture
+                    
+
+
+             
+ 
+    .overlay-app
+  script(src='/javascripts/script.js')

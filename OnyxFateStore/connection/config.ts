@@ -1,5 +1,5 @@
 export const config = {
-    server: "ARTEM-SKOROPADS",
+    server: "onyx-fate-store.database.windows.net",
     options: {
         database: "Onyx-Assets",
         encrypt: true

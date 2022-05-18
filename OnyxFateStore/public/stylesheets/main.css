@@ -792,3 +792,58 @@ body.light-mode .video-bg:before {
 .content-description + .content-billing {
     margin-left: 20px;
 }
+
+.profile-widget {
+
+}
+
+    .profile-widget:hover {
+
+    }
+
+.upload-picture {
+    display: flex;
+    flex-direction: column;
+    width: calc(33.3% - 20px);
+    font-size: 16px;
+    background-color: var(--content-bg);
+    border-radius: 14px;
+    border: 1px solid var(--theme-bg-color);
+    padding: 60px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    align-items: center;
+}
+
+    .upload-picture:hover {
+        transform: scale(1.132);
+        background-color: var(--theme-bg-color);
+    }
+
+    .upload-picture span {
+
+    }
+
+.logout-widget{
+
+}
+
+    .logout-widget:hover{
+
+    }
+
+    .logout-widget span{
+
+    }
+
+.history-page{
+
+}
+
+    .history-page:hover {
+
+    }
+
+    .history-page span {
+
+    }
