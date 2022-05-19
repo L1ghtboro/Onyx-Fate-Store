@@ -75,7 +75,8 @@ toggleButton.addEventListener('click', () => {
 $(function () {
     if ($('.profile-page').text() === 'Sign Up') {
         $(".profile-img").css("display", "none");
-    } else if ($('.profile-page').text() === ''){
+    } else if ($('.profile-page').text() === '') {
+        $('profile-img').src = sessionStorage.getItem('Profile Picture');
         $(".profile-img").css("display", "block");
     }
 })

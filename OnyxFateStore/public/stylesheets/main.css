@@ -824,6 +824,21 @@ body.light-mode .video-bg:before {
 
     }
 
+    .upload-picture-input{
+
+    }
+
+input[type="file"] {
+    display: none;
+}
+
+    .upload-picture-submit {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-top: 16px;
+}
+
 .logout-widget{
 
 }

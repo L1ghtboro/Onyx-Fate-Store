@@ -19,17 +19,20 @@ global.document = new JSDOM('/').window.document;
 import { authorization } from '../public/typescripts/authorization';
 
 const jwt = require('jsonwebtoken');
-let currentUser = null;
+let currentUser = {
+    userLogin: null,
+    userImage: null
+};
 
 router.get('/', (req: express.Request, res: express.Response) => {
-    if (currentUser === null) {
+    if (currentUser.userLogin === null) {
         res.render('index', {
             title: 'Main Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login'
         });
     }
     else {
         res.render('index', {
-            title: 'Main Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
+            title: 'Main Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', userImg: currentUser.userImage
         });
     }
 });
@@ -40,20 +43,20 @@ router.get('/login', (req: express.Request, res: express.Response) => {
 });
 
 router.get('/model', (req: express.Request, res: express.Response) => {
-    if (currentUser === null) {
+    if (currentUser.userLogin === null) {
         res.render('model-page', {
             title: 'Model Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login', model: "undefined"
         });
     }
     else {
         res.render('model-page', {
-            title: 'Model Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', model: "undefined"
+            title: 'Model Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', userImg: currentUser.userImage, model: "undefined"
         });
     }
 });
 
 router.get('/profile', (req: express.Request, res: express.Response) => {
-    if (currentUser === null) {
+    if (currentUser.userLogin === null) {
         res.render('error', {
             message: 'To enter this page you must be logged in',
             error: 'Access denied, not enough permissions'
@@ -61,13 +64,13 @@ router.get('/profile', (req: express.Request, res: express.Response) => {
     }
     else {
         res.render('profile-page', {
-            title: 'Profle Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile'
+            title: 'Profle Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', userImg: currentUser.userImage
         });
     }
 });
 
 router.get('/logout', (req: express.Request, res: express.Response) => {
-    res.clearCookie(currentUser);
+    res.clearCookie(currentUser.userLogin);
     currentUser = null;
     res.redirect('/');
 });
@@ -90,7 +93,8 @@ router.post('/signinform', (req: express.Request, res: express.Response) => {
             cryptSignInDTO(req.body, loginData.userLogin);
             if (loginData.userPassword === req.body.userPasswordLogin) {
                 //user_token = authorization.createJwt(req.body);
-                currentUser = loginData.userLogin
+                currentUser.userLogin = loginData.userLogin;
+                currentUser.userImage = loginData.userPic;
                 cookies.setCookie(loginData.userLogin, authorization.createJwt(req.body), res);
                 res.redirect('/');
             } else {
@@ -101,7 +105,7 @@ router.post('/signinform', (req: express.Request, res: express.Response) => {
             }
         } else {
             res.render('error', {
-                message: 'You can\'t leave incompleted form',
+                message: 'Error in input data',
                 error: 'Login incompleted form'
             });
         }
@@ -117,14 +121,18 @@ router.post('/signupform', (req, res) => {
             req.body = createSignUpDTO(req.body);
             req.body.userRole = 'User';
 
-            makeQuery(`INSERT INTO LoginInfo(user_login, user_email, user_password, user_name, user_lastname, user_role) 
-            VALUES('${req.body.userLogin}', '${req.body.userEmail}', '${req.body.userPassword}', '${req.body.userName}', '${req.body.userLastname}', '${req.body.userRole}'); `, (err: any) => {
+            makeQuery(`INSERT INTO LoginInfo(user_login, user_email, user_password, user_name, user_lastname, user_picture, user_role) 
+            VALUES('${req.body.userLogin}', '${req.body.userEmail}', '${req.body.userPassword}', '${req.body.userName}', '${req.body.userLastname}', '\https://images.squarespace-cdn.com/content/v1/54b7b93ce4b0a3e130d5d232/1519987020970-8IQ7F6Z61LLBCX85A65S/icon.png?format=1000w'\,'${req.body.userRole}'); `, (err: any) => {
                 if (err)
                     console.error(err);
                 console.log('Data Inserted - new user ' + req.body.userLogin);
             });
 
-            //Up here we need to stay logged 
+            currentUser.userLogin = req.body.userLogin;
+            currentUser.userImage = 'https://images.squarespace-cdn.com/content/v1/54b7b93ce4b0a3e130d5d232/1519987020970-8IQ7F6Z61LLBCX85A65S/icon.png?format=1000w';
+            cookies.setCookie(req.body.userLogin, authorization.createJwt(req.body), res);
+
+            //sessionStorage.setItem('Profile Picture', 'https://images.squarespace-cdn.com/content/v1/54b7b93ce4b0a3e130d5d232/1519987020970-8IQ7F6Z61LLBCX85A65S/icon.png?format=1000w');
 
             res.redirect('/');
         } else {
@@ -134,6 +142,20 @@ router.post('/signupform', (req, res) => {
             });
         }
     }, 3000);
+});
+
+router.post('/profilepicture', (req: express.Request, res: express.Response) => {
+    makeQuery(`SELECT user_picture FROM LoginInfo
+                UPDATE LoginInfo SET user_picture = '${req.body.pictureurl}'
+                WHERE user_login = '${currentUser.userLogin}'`, (err: any) => {
+        if (err)
+            console.error(err);
+        console.log('Image changed for' + currentUser.userLogin);
+    });
+
+    currentUser.userImage = req.body.pictureurl;
+
+    res.redirect('/profile')
 });
 
 export default router;

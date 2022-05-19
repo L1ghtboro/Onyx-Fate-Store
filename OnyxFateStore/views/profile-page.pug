@@ -18,7 +18,7 @@ block content
                 g#Desktop_4_(transform='translate(-84.000000, -410.000000)' sketch:type='MSArtboardGroup')
                     path#cart.st0(sketch:type='MSShapeGroup' d='M94.5,434.6h24.8l4.7-15.7H92.2l-1.3-8.9H84v4.8h3.1l3.7,27.8h0.1\c0,1.9,1.8,3.4,3.9,3.4c2.2,0,3.9-1.5,3.9-3.4h12.8c0,1.9,1.8,3.4,3.9,3.4c2.2,0,3.9-1.5,3.9-3.4h1.7v-3.9l-25.8-0.1L94.5,434.6')
         a.profile-page(href= signURL)= signedText
-            img.profile-img(src='https://data.whicdn.com/images/348571022/original.jpg' alt='')         
+            img.profile-img(src= userImg alt='')         
     .wrapper
       .left-side
         .side-wrapper
@@ -33,13 +33,17 @@ block content
           .content-section
             .content-section
                 .content-main-separator
-                    .upload-picture
-                        span  
-                            |         Upload Picture
-                    
-
-
-             
- 
+                    form(action='/profilepicture' method='POST').apps-card
+                        .upload-picture
+                            label.upload-picture-title(for="setpicture") 
+                                |   Upload Picture
+                            input.upload-picture-input(type="file" id="setpicture" name="setpicture" accept=".jpg, .jpeg, .png")
+                            input(type="hidden" id="pictureurl" name="pictureurl")
+                            input(type="hidden" id="picturesize" name="picturesize")
+                            
+                            .upload-picture-submit
+                                button(type="submit").content-button.status-button Submit
+                .preview
     .overlay-app
   script(src='/javascripts/script.js')
+  script(src='/javascripts/upload-file.js')

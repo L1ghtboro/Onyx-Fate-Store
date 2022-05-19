@@ -54,6 +54,9 @@
     <Content Include="public\javascripts\preloader.js" />
     <Content Include="public\javascripts\script.js" />
     <Content Include="public\javascripts\loginstyle.js" />
+    <Content Include="public\javascripts\upload-file.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\stylesheets\error.css" />
     <Content Include="public\stylesheets\loginstyle.css" />
     <Content Include="public\stylesheets\notify.css">
