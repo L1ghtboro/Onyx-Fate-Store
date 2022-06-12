@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ulaca - Houses and stone quarry ruins
+* source:	https://sketchfab.com/3d-models/ulaca-houses-and-stone-quarry-ruins-9cab09120c894a8cb66c666da7baf006
+* author:	Riccardo Rocca (https://sketchfab.com/riccardo.rocca)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ulaca - Houses and stone quarry ruins" (https://sketchfab.com/3d-models/ulaca-houses-and-stone-quarry-ruins-9cab09120c894a8cb66c666da7baf006) by Riccardo Rocca (https://sketchfab.com/riccardo.rocca) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

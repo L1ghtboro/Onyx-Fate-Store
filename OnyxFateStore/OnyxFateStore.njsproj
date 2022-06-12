@@ -5,8 +5,8 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>OnyxFateStore</Name>
     <RootNamespace>OnyxFateStore</RootNamespace>
-    <Environment>
-    </Environment>
+    <Environment>DBLogin="Lightboro"
+DBPass="gamegaydev2Q3050"</Environment>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -71,12 +71,21 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\error.pug" />
+    <Content Include="views\history-page.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\layout-error.pug" />
     <Content Include="views\index.pug" />
+    <Content Include="views\layout-history.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\layout-model.pug">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\layout-profile.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\layout-upload.pug">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\layout.pug" />
@@ -88,11 +97,15 @@
     <Content Include="views\profile-page.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\upload-page.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="connection\" />
+    <Folder Include="database\" />
     <Folder Include="Properties\" />
     <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="public\" />
@@ -105,10 +118,16 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="connection\blob-connection.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="connection\config.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="connection\createconnection.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="database\db-queries.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\typescripts\authorization.ts">
@@ -120,7 +139,13 @@
     <TypeScriptCompile Include="public\typescripts\cookies-engage.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="public\typescripts\exceptions.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="public\typescripts\login-dto.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\typescripts\onyx-queries.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
   </ItemGroup>

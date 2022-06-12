@@ -646,6 +646,12 @@ body.light-mode .video-bg:before {
     transition: 0.3s ease;
 }
 
+    a {
+        outline: none;
+        text-decoration: none;
+        color: #f9fafb;
+    }
+
     .app-card:hover {
         transform: scale(1.02);
         background-color: var(--theme-bg-color);
@@ -666,6 +672,17 @@ body.light-mode .video-bg:before {
         display: flex;
         align-items: center;
     }
+
+.app-card-model-show {
+    margin-top: 20px;
+    width: 300px;
+    height: 169px;
+}
+
+.app-card-model-price{
+    margin-top: 10px;
+    margin-right: 70px;
+}
 
 .app-card__subtext {
     font-size: 14px;
@@ -816,7 +833,7 @@ body.light-mode .video-bg:before {
 }
 
     .upload-picture:hover {
-        transform: scale(1.132);
+        transform: scale(1.02);
         background-color: var(--theme-bg-color);
     }
 
@@ -839,26 +856,170 @@ input[type="file"] {
         margin-top: 16px;
 }
 
-.logout-widget{
-
+.logout-widget {
+    height: 209px;
+    display: flex;
+    flex-direction: column;
+    width: calc(33.3% - 20px);
+    font-size: 16px;
+    background-color: var(--content-bg);
+    border-radius: 14px;
+    border: 1px solid var(--theme-bg-color);
+    padding: 60px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    align-items: center;
 }
 
-    .logout-widget:hover{
-
+    .logout-widget:hover {
+        transform: scale(1.02);
+        background-color: var(--theme-bg-color);
     }
 
-    .logout-widget span{
-
+    .logout-widget span {
+        display: flex;
+        align-items: center;
     }
 
-.history-page{
+    .logout-widget a {
+        outline: none;
+        text-decoration: none;
+        color: #f9fafb;
+    }
 
+.history-page {
+    height: 209px;
+    display: flex;
+    flex-direction: column;
+    width: calc(33.3% - 20px);
+    font-size: 16px;
+    background-color: var(--content-bg);
+    border-radius: 14px;
+    border: 1px solid var(--theme-bg-color);
+    padding: 60px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    align-items: center;
 }
 
     .history-page:hover {
-
+        transform: scale(1.02);
+        background-color: var(--theme-bg-color);
     }
 
     .history-page span {
+        display: flex;
+        align-items: center;
+    }
 
+    .history-page a{
+        outline: none;
+        text-decoration: none;
+        color: #f9fafb;
+    }
+
+
+.upload-picture + .history-page {
+    margin-left: 20px;
+}
+
+.history-page + .logout-widget{
+    margin-left: 20px;
+}
+
+.upload-page {
+    height: 209px;
+    display: flex;
+    flex-direction: column;
+    width: calc(33.3% - 20px);
+    font-size: 16px;
+    background-color: var(--content-bg);
+    border-radius: 14px;
+    border: 1px solid var(--theme-bg-color);
+    padding: 60px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    align-items: center;
+}
+
+    .upload-page:hover {
+        transform: scale(1.02);
+        background-color: var(--theme-bg-color);
+    }
+
+    .upload-page span {
+        display: flex;
+        align-items: center;
+    }
+
+    .upload-page a {
+        outline: none;
+        text-decoration: none;
+        color: #f9fafb;
+    }
+
+.income-page {
+    height: 209px;
+    display: flex;
+    flex-direction: column;
+    width: calc(33.3% - 20px);
+    font-size: 16px;
+    background-color: var(--content-bg);
+    border-radius: 14px;
+    border: 1px solid var(--theme-bg-color);
+    padding: 60px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    align-items: center;
+}
+
+    .income-page:hover {
+        transform: scale(1.02);
+        background-color: var(--theme-bg-color);
+    }
+
+    .income-page span {
+        display: flex;
+        align-items: center;
+    }
+
+    .income-page a {
+        outline: none;
+        text-decoration: none;
+        color: #f9fafb;
+    }
+
+.upload-page + .income-page {
+    margin-left: 20px;
+}
+
+.admin-panel {
+    height: 209px;
+    display: flex;
+    flex-direction: column;
+    width: calc(33.3% - 20px);
+    font-size: 16px;
+    background-color: var(--content-bg);
+    border-radius: 14px;
+    border: 1px solid var(--theme-bg-color);
+    padding: 60px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    align-items: center;
+}
+
+    .admin-panel:hover {
+        transform: scale(1.02);
+        background-color: var(--theme-bg-color);
+    }
+
+    .admin-panel span {
+        display: flex;
+        align-items: center;
+    }
+
+    .admin-panel a {
+        outline: none;
+        text-decoration: none;
+        color: #f9fafb;
     }

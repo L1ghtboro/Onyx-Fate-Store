@@ -37,43 +37,55 @@ block content
           .content-section
             .content-section-title Trendy models
             .apps-card
-              .app-card
-                span
-                    |         Sample 
-                .app-card__subtext Sample sub
+              a(href= modelLink1).app-card
+                span#sub-1
+                    = name1 
+                img(src= pic1).app-card-model-show
                 .app-card-buttons
-                    button.content-button.status-button Buy
-              .app-card
-                span
-                    |         Sample
-                .app-card__subtext Sample sub
+                    span.app-card-model-price 
+                        = price1
+                    button.content-button.status-button Add to cart
+              a(href= modelLink2).app-card
+                span#sub-2
+                    = name2
+                img(src= pic2).app-card-model-show
                 .app-card-buttons
-                    button.content-button.status-button Buy
-              .app-card
-                span
-                    |         Sample
-                .app-card__subtext Sample sub
+                    span.app-card-model-price 
+                        = price2
+                    button.content-button.status-button Add to cart
+              a(href= modelLink3).app-card
+                span#sub-3
+                    = name3
+                img(src= pic3).app-card-model-show
                 .app-card-buttons
-                  button.content-button.status-button Buy
+                    span.app-card-model-price 
+                        = price3
+                    button.content-button.status-button Add to cart
           .content-section
             .apps-card
-              .app-card
-                span
-                    |         Sample
-                .app-card__subtext Sample sub
+              a(href= modelLink4).app-card
+                span#sub-4
+                    = name4
+                img(src= pic4).app-card-model-show
                 .app-card-buttons
-                  button.content-button.status-button Buy
-              .app-card
-                span  
-                    |         Sample
-                .app-card__subtext Sample sub
+                    span.app-card-model-price 
+                        = price4
+                    button.content-button.status-button Add to cart
+              a(href= modelLink5).app-card
+                span#sub-5  
+                    = name5
+                img(src= pic5).app-card-model-show
                 .app-card-buttons
-                    button.content-button.status-button Buy
-              .app-card
-                span
-                    |         Sample
-                .app-card__subtext Sample sub
+                    span.app-card-model-price 
+                        = price5
+                    button.content-button.status-button Add to cart
+              a(href= modelLink6).app-card
+                span#sub-6
+                    = name6
+                img(src= pic6).app-card-model-show
                 .app-card-buttons
-                  button.content-button.status-button Buy
+                    span.app-card-model-price 
+                        = price6
+                    button.content-button.status-button Add to cart
     .overlay-app
   script(src='/javascripts/script.js')

@@ -363,3 +363,7 @@ body {
         bottom: 100%;
     }
 }
+
+/*input[type="file"] {
+    display: none;
+}*/

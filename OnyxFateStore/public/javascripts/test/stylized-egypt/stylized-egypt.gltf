@@ -1,0 +1,473 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 23989,
+      "max": [
+        404.9873352050781,
+        198.8034210205078,
+        411.03448486328125
+      ],
+      "min": [
+        159.76455688476563,
+        9.878156661987305,
+        157.5554962158203
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 287868,
+      "componentType": 5126,
+      "count": 23989,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 23989,
+      "max": [
+        2.981935501098633,
+        2.0022289752960205
+      ],
+      "min": [
+        -0.9048670530319214,
+        -0.8271120190620422
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 191912,
+      "componentType": 5126,
+      "count": 23989,
+      "max": [
+        0.0,
+        0.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 61380,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 575736,
+      "componentType": 5126,
+      "count": 11619,
+      "max": [
+        414.4336242675781,
+        244.8384552001953,
+        424.32568359375
+      ],
+      "min": [
+        139.2985382080078,
+        6.70550537109375,
+        131.06201171875
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 715164,
+      "componentType": 5126,
+      "count": 11619,
+      "max": [
+        0.9995868802070618,
+        0.9999809861183167,
+        0.998875617980957
+      ],
+      "min": [
+        -0.9992703795433044,
+        -0.9999411106109619,
+        -0.9990188479423523
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 383824,
+      "componentType": 5126,
+      "count": 11619,
+      "max": [
+        1.9987713098526,
+        1.998005747795105
+      ],
+      "min": [
+        0.009002786129713058,
+        -0.0013967454433441162
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 476776,
+      "componentType": 5126,
+      "count": 11619,
+      "max": [
+        0.0,
+        0.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 245520,
+      "componentType": 5125,
+      "count": 35232,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 854592,
+      "componentType": 5126,
+      "count": 108,
+      "max": [
+        319.4745788574219,
+        93.74349975585938,
+        336.9048767089844
+      ],
+      "min": [
+        266.36688232421875,
+        83.160400390625,
+        185.86158752441406
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 855888,
+      "componentType": 5126,
+      "count": 108,
+      "max": [
+        0.9659278988838196,
+        7.638303941348568e-06,
+        0.8660368919372559
+      ],
+      "min": [
+        0.25881579518318176,
+        -1.1677038855850697e-05,
+        -0.9659267663955688
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 569728,
+      "componentType": 5126,
+      "count": 108,
+      "max": [
+        0.19382941722869873,
+        1.325812816619873
+      ],
+      "min": [
+        0.018960416316986084,
+        1.005958914756775
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 570592,
+      "componentType": 5126,
+      "count": 108,
+      "max": [
+        -1.522745132446289,
+        0.9980080127716064
+      ],
+      "min": [
+        -1.9990473985671997,
+        0.0019920319318771362
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 386448,
+      "componentType": 5125,
+      "count": 216,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "BenVanhaelst (https://sketchfab.com/BenVanhaelst)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/stylized-egyptian-embalmer-6baf039826e242a69dbb44d643b84002",
+      "title": "Stylized Egyptian Embalmer"
+    },
+    "generator": "Sketchfab-12.65.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 387312,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 571456,
+      "byteOffset": 387312,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 857184,
+      "byteOffset": 958768,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1815952,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Building_baseColor.png"
+    },
+    {
+      "uri": "textures/folliage_baseColor.png"
+    },
+    {
+      "uri": "textures/Fires_baseColor.png"
+    },
+    {
+      "uri": "textures/Fires_emissive.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Building",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.0
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "folliage",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.0
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "emissiveFactor": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissiveTexture": {
+        "index": 3
+      },
+      "name": "Fires",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.0
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "polySurface4038_Building_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2,
+            "TEXCOORD_1": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "polySurface4038_folliage_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TEXCOORD_0": 7,
+            "TEXCOORD_1": 8
+          },
+          "indices": 9,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "polySurface4038_Fires_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 11,
+            "POSITION": 10,
+            "TEXCOORD_0": 12,
+            "TEXCOORD_1": 13
+          },
+          "indices": 14,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.007187460549175961,
+        -0.9999741911888123,
+        0.0,
+        0.0,
+        0.9999741911888123,
+        0.007187460549175961,
+        0.0,
+        0.0,
+        2.0176312923431396,
+        -0.7372927069663997,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "ffdb7189c13b4547ad2b60f2b0c76671.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        5,
+        6
+      ],
+      "name": "polySurface4038"
+    },
+    {
+      "mesh": 0,
+      "name": "polySurface4038_Building_0"
+    },
+    {
+      "mesh": 1,
+      "name": "polySurface4038_folliage_0"
+    },
+    {
+      "mesh": 2,
+      "name": "polySurface4038_Fires_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    }
+  ]
+}

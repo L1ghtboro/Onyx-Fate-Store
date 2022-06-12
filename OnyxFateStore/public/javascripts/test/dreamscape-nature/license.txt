@@ -1,0 +1,11 @@
+Model Information:
+* title:	Witch's Cottage
+* source:	https://sketchfab.com/3d-models/witchs-cottage-96239660cc2d4961afc19aa18f71feaf
+* author:	Sidartha_Dipayhana (https://sketchfab.com/Sidartha_Dipayhana)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Witch's Cottage" (https://sketchfab.com/3d-models/witchs-cottage-96239660cc2d4961afc19aa18f71feaf) by Sidartha_Dipayhana (https://sketchfab.com/Sidartha_Dipayhana) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

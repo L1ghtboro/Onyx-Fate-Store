@@ -80,3 +80,20 @@ $(function () {
         $(".profile-img").css("display", "block");
     }
 })
+
+$(function () {
+    $(".user-role").css("display", "none");
+    $('.upload-page').css('display', 'none');
+    $('.income-page').css('display', 'none');
+    $('.admin-panel').css('display', 'none');
+    if ($('.user-role').text() === 'Artist') {
+        $('.upload-page').css('display', 'block');
+        $('.income-page').css('display', 'block');
+    } else if ($('.user-role').text() === 'Admin') {
+        $('.admin-panel').css('display', 'block');
+    } else if ($('.user-role').text() === 'User') {
+        console.log('No change');
+    } else {
+        console.log('Else');
+    }
+})

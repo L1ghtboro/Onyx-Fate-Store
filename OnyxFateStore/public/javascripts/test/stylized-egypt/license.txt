@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stylized Egyptian Embalmer
+* source:	https://sketchfab.com/3d-models/stylized-egyptian-embalmer-6baf039826e242a69dbb44d643b84002
+* author:	BenVanhaelst (https://sketchfab.com/BenVanhaelst)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stylized Egyptian Embalmer" (https://sketchfab.com/3d-models/stylized-egyptian-embalmer-6baf039826e242a69dbb44d643b84002) by BenVanhaelst (https://sketchfab.com/BenVanhaelst) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

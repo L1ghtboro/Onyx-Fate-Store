@@ -33,17 +33,44 @@ block content
           .content-section
             .content-section
                 .content-main-separator
-                    form(action='/profilepicture' method='POST').apps-card
-                        .upload-picture
-                            label.upload-picture-title(for="setpicture") 
-                                |   Upload Picture
-                            input.upload-picture-input(type="file" id="setpicture" name="setpicture" accept=".jpg, .jpeg, .png")
-                            input(type="hidden" id="pictureurl" name="pictureurl")
-                            input(type="hidden" id="picturesize" name="picturesize")
+                    .apps-card
+                        form(action='/profilepicture' method='POST').upload-picture
+                                label.upload-picture-title(for="setpicture") 
+                                    |   Upload Picture
+                                input.upload-picture-input(type="file" id="setpicture" name="setpicture" accept=".jpg, .jpeg, .png")
+                                input(type="hidden" id="pictureurl" name="pictureurl")
+                                input(type="hidden" id="picturesize" name="picturesize")
                             
-                            .upload-picture-submit
-                                button(type="submit").content-button.status-button Submit
-                .preview
+                                .upload-picture-submit
+                                    button(type="submit").content-button.status-button Submit
+                        .history-page
+                            a.history-page-title(href='/history') 
+                                |   Go to history
+                            .history-page-input
+                        .logout-widget
+                            a.logout-widget-title(href='/logout')
+                                |   Logout
+                            .logout-widget-input
+            .content-section
+                .content-main-separator
+                    .apps-card
+                        .upload-page
+                            a.upload-page-title(href='/uploader')
+                                |   Upload your 3d model
+                            .upload-page-input
+                        .income-page
+                            a.income-page-title(href='/income')
+                                |   Watch your income
+                            .income-page-input
+            .content-section
+                .content-main-separator
+                    .apps-card
+                        .admin-panel
+                            a.admin-panel-title(href='/admin')
+                                |   Admin Panel
+                            .admin-panel-input
+            .user-role= userRole
+                   
     .overlay-app
   script(src='/javascripts/script.js')
   script(src='/javascripts/upload-file.js')
