@@ -32,8 +32,10 @@ block content
         .content-wrapper
           .content-section
             .content-section-title Your transaction history
-                //Table ?
+                ul
+                    each history in historyData
+                        li #{history.sell_id} #{history.model_name} #{history.user_paid} #{history.transaction_date}
+
                    
     .overlay-app
   script(src='/javascripts/script.js')
-  script(src='/javascripts/upload-file.js')

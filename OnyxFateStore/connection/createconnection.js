@@ -4,14 +4,15 @@ exports.makeQuery = void 0;
 const { Connection, Request } = require('tedious');
 const config_1 = require("./config");
 const NewConnection = new Connection(config_1.config);
-//NewConnection.on("connect", err => {
-//    if (err) {
-//        console.error(err.message);
-//    } else {
-//        console.log("Azure SQL DB connected");
-//    }
-//});
-//NewConnection.connect();
+NewConnection.on("connect", err => {
+    if (err) {
+        console.error(err.message);
+    }
+    else {
+        console.log("Azure SQL DB connected");
+    }
+});
+NewConnection.connect();
 exports.default = NewConnection;
 const makeQuery = (query, _callback) => {
     let connection = new Connection(config_1.config);

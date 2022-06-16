@@ -33,7 +33,7 @@ block content
       .main-container
         .content-wrapper
           .content-section
-            .content-section-title ???
+            .content-section-title= model_name
                 .model-hub
                 script(src="/javascripts/model-browse.js" type="module")
           .content-section
@@ -56,12 +56,11 @@ block content
             .content-main-separator
           .content-section
             .content-main-separator
-                .content-description  ???
+                .content-description= model_desc
                 .content-billing
-                    span  
-                        |         ???
+                    span= model_price
                     .content-billing-buyout
-                        button.content-button.status-button Buy
+                        button(onClick="download()").content-button.status-button Buy
  
     .overlay-app
   script(src='/javascripts/script.js')

@@ -97,3 +97,21 @@ $(function () {
         console.log('Else');
     }
 })
+
+function download() {                                                                                                                                                                                                                                                                                                                       let urlFromBack = '/javascripts/test/stylized-graveyard.zip';
+    axios({
+        url: urlFromBack,
+        method: 'GET',
+        responseType: 'blob'
+    })
+        .then((response) => {
+            const url = window.URL
+                .createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'model.zip');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
+}

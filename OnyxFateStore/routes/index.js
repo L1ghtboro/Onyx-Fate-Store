@@ -79,12 +79,12 @@ router.get('/model', (req, res) => {
         console.log(onyx.recieveData);
         if (currentUser.userLogin === null) {
             res.render('model-page', {
-                title: 'Model Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login', model: "undefined"
+                title: 'Model Page', signedStatus: 'Sign Up', signedText: 'Sign Up', signURL: '/login', model: onyx.recieveData.model_package, model_desc: onyx.recieveData.model_description, model_price: onyx.recieveData.model_price, model_name: onyx.recieveData.model_name
             });
         }
         else {
             res.render('model-page', {
-                title: 'Model Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', userImg: currentUser.userImage, model: "undefined"
+                title: 'Model Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', userImg: currentUser.userImage, model: onyx.recieveData.model_package, model_desc: onyx.recieveData.model_description, model_price: onyx.recieveData.model_price, model_name: onyx.recieveData.model_name
             });
         }
     }, 3000);
@@ -103,18 +103,64 @@ router.get('/profile', (req, res) => {
     }
 });
 router.get('/history', (req, res) => {
-    if (currentUser.userLogin === null) {
-        res.render('error', {
-            message: 'To enter this page you must be logged in',
-            error: 'Access denied, not enough permissions'
-        });
+    if (currentUser.userLogin !== null) {
+        onyx.queryToTakehistory(currentUser.userLogin);
     }
-    else {
-        res.render('history-page', {
-            title: 'History Page', signedStatus: 'Signed In', signedText: '', signURL: '/history', userImg: currentUser.userImage
-        });
-        console.log('history');
+    setTimeout(function () {
+        onyx.queryToTakehistory(currentUser.userLogin);
+        if (currentUser.userLogin === null) {
+            res.render('error', {
+                message: 'To enter this page you must be logged in',
+                error: 'Access denied, not enough permissions'
+            });
+        }
+        else {
+            res.render('history-page', {
+                title: 'History Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', userImg: currentUser.userImage, historyData: onyx.historyData
+            });
+        }
+    }, 3000);
+});
+router.get('/income', (req, res) => {
+    if (currentUser.userLogin !== null && DEFAULT_ROLE === 'Artist') {
+        onyx.queryToTakeincome(currentUser.userLogin);
     }
+    setTimeout(function () {
+        onyx.queryToTakeincome(currentUser.userLogin);
+        if (currentUser.userLogin !== null && DEFAULT_ROLE !== 'Artist') {
+            res.render('error', {
+                message: 'To enter this page you must be logged in',
+                error: 'Access denied, not enough permissions'
+            });
+        }
+        else {
+            res.render('income-page', {
+                title: 'Income Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', userImg: currentUser.userImage, incomeData: onyx.incomeData
+            });
+        }
+    }, 3000);
+});
+router.get('/admin', (req, res) => {
+    if (currentUser.userLogin !== null && DEFAULT_ROLE === 'Artist') {
+        onyx.queryToTakeadmin(currentUser.userLogin);
+    }
+    setTimeout(function () {
+        onyx.queryToTakeadmin(currentUser.userLogin);
+        if (currentUser.userLogin !== null && DEFAULT_ROLE !== 'Admin') {
+            res.render('error', {
+                message: 'To enter this page you must be logged in',
+                error: 'Access denied, not enough permissions'
+            });
+        }
+        else {
+            res.render('admin-page', {
+                title: 'Admin Page', signedStatus: 'Signed In', signedText: '', signURL: '/profile', userImg: currentUser.userImage, adminData: onyx.adminData
+            });
+        }
+    }, 3000);
+});
+router.post('/aproveform', (req, res) => {
+    onyx.queryMoveToProduct();
 });
 router.get('/logout', (req, res) => {
     res.clearCookie(currentUser.userLogin);

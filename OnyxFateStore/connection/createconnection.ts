@@ -4,15 +4,15 @@ import { config } from './config';
 
 const NewConnection = new Connection(config);
 
-//NewConnection.on("connect", err => {
-//    if (err) {
-//        console.error(err.message);
-//    } else {
-//        console.log("Azure SQL DB connected");
-//    }
-//});
+NewConnection.on("connect", err => {
+    if (err) {
+        console.error(err.message);
+    } else {
+        console.log("Azure SQL DB connected");
+    }
+});
 
-//NewConnection.connect();
+NewConnection.connect();
 
 export default NewConnection;   
 

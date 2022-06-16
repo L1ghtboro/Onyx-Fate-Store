@@ -22,6 +22,18 @@ block content
                 .modelZip
                     input(type="file" id="model_file" name="model_file" accept=".zip")
                     label Please provide model link
+            .user-box
+                .modelPic
+                    input(type="file" id="model_pic" name="model_pic" accept=".jpg")
+                    label Please provide model picture
+            .user-box
+                .modelPic
+                    input(type='text' name='model_desc', required='')
+                    label Model description
+            .user-box
+                .modelPic
+                    input(type='text' name='model_price', required='')
+                    label Model price
 
             a.submitUpForm(href='javascript:;' onclick="anchorSubmit('uploadform')")
                 span

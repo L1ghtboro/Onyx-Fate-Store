@@ -67,6 +67,9 @@ DBPass="gamegaydev2Q3050"</Environment>
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <Content Include="views\admin-page.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\browsing.pug">
       <SubType>Code</SubType>
     </Content>
@@ -74,9 +77,18 @@ DBPass="gamegaydev2Q3050"</Environment>
     <Content Include="views\history-page.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="views\income-page.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\layout-admin.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\layout-error.pug" />
     <Content Include="views\index.pug" />
     <Content Include="views\layout-history.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\layout-income.pug">
       <SubType>Code</SubType>
     </Content>
     <Content Include="views\layout-model.pug">
@@ -131,6 +143,9 @@ DBPass="gamegaydev2Q3050"</Environment>
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\typescripts\authorization.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\typescripts\browse-history.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\typescripts\check-sign.ts">

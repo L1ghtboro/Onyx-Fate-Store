@@ -42,8 +42,8 @@ $('.model-hub').append(renderer.domElement);
 let meshLoader = new GLTFLoader();
 
 let meshScene;
-
-meshLoader.load('/javascripts/test/stylized-graveyard/stylized-graveyard.gltf', function (gltf) {
+                                                                                                                                                                                                                                                                                    let modelFromBack = '/javascripts/test/stylized-graveyard/stylized-graveyard.gltf'
+meshLoader.load(modelFromBack, function (gltf) {
     meshScene = gltf.scene.children[0];
     meshScene.scale.set(0.5, 0.5, 0.5);
     scene.add(gltf.scene);

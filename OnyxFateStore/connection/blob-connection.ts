@@ -1,8 +1,6 @@
 const { BlobServiceClient } = require('@azure/storage-blob');
 const { DefaultAzureCredential } = require('@azure/identity');
 
-
-
 export class OnyxBlob{
     blobAccountConnect(accountName) {
 

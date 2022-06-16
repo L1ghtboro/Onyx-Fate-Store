@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    setTimeout(function () {
-        $(".preloader").fadeOut();
-        $(".loader").fadeOut();
-    }, 0);
+    $(".preloader").fadeOut();
+    $(".loader").fadeOut();
 });
