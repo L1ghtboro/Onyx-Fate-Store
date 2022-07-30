@@ -8,7 +8,7 @@ export const config = {
         type: "default",
         options: {
             userName: "Lightboro",
-            password: "gamegaydev2Q3050",
+            password: "",
         }
     }
 }
